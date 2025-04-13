@@ -2,25 +2,9 @@ import Newscard from "./Newscard";
 
 export default function NewsGrid(){
     return(<>
-    <div className="grid grid-cols-3 m-20 gap-5">
-        <Newscard 
-        image="/src/assets/Image1.svg"
-        text1="Design" 
-        text2="Breaking News: AI & Tech Innovations" 
-        text3="The latest advancements in AI and their impact on industries worldwide." 
-        text4=""/>
-        <Newscard 
-        image="/src/assets/Image2.svg"
-        text1="Product" 
-        text2="Twitter CEO Announces New Policies" 
-        text3="Major updates on content moderation and user safety measures." 
-        text4=""/>
-        <Newscard 
-        image="/src/assets/Image (3).svg"
-        text1="Software Engineering" 
-        text2="Top YouTube Creators on AI Trends" 
-        text3="How influencers are shaping public perception of artificial intelligence." 
-        text4=""/>
+    <h1 className="text-center font-bold text-3xl font-sans">Trending Now</h1>
+    <div className="grid grid-cols-3 m-10 gap-5">
+        
         <Newscard 
         image="/src/assets/Image (4).svg"
         text1="Management" 
@@ -59,8 +43,8 @@ export default function NewsGrid(){
         text4=""/>
     </div>
     <div className="p-2 flex justify-center">
-        <button className="bg-green-800 font-bold p-2 text-white rounded-sm hover:bg-green-600">
-        ↓ load more
+        <button className="m-3 focus:outline-none text-gray-200 bg-black hover:border hover:border-slate-300 hover:bg-black hover:text-slate-300 focus:ring-2 focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-balck dark:focus:ring-gray-200 ease-linear">
+        ↓ Load More
         </button>
     </div>
     </>)

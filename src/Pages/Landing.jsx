@@ -7,16 +7,17 @@ import Feature from "../components/Features";
 import BottomFeatures from "../components/BottomFeatures";
 import Footer from "../components/Footer";
 
-
 export default function Landing() {
     return (
-        <>
+        <div className="w-full min-h-screen flex flex-col">
             <NavbarLanding />
-            <Hero />
-            <OurSources />
-            <Feature />
-            <BottomFeatures />
+            <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <Hero />
+                <OurSources />
+                <Feature />
+                <BottomFeatures />
+            </main>
             <Footer />
-        </>)
-
+        </div>
+    )
 }

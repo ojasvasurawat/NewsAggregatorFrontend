@@ -4,27 +4,27 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Routes, Route } from "react-router-dom";
 
-import Home from './Pages/home'
-import SignIn from './Pages/signin'
+import Home from './Pages/Home'
+import SignIn from './Pages/SignIn'
 import SignUp from './Pages/Signup'
 import Err from './Pages/Err';
 import Landing from './Pages/Landing';
+import Blog from './Pages/Blog';
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-    {/* <Home/>
-    <SignIn/>
-    <SignUp/> */}
+  
     <Routes>
 
       <Route path='/' element={<Landing/>}></Route>
       <Route path='/Home' element={<Home/>}></Route>
       <Route path='/signin' element={<SignIn/>}></Route>
       <Route path='/signup' element={<SignUp/>}></Route>
+      <Route path='/category'element={<SignUp/>}></Route>
       <Route path='*' element={<Err/>}></Route>
-
+      <Route path='/blog' element={<Blog/>}></Route>
 
     </Routes>
     </>
