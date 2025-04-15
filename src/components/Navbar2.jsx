@@ -1,4 +1,4 @@
-import { HomeIcon } from "@heroicons/react/16/solid"
+
 import { useNavigate,NavLink } from "react-router-dom"
 import Button from "./Button"
 export default function NavbarLanding() {
@@ -6,7 +6,7 @@ export default function NavbarLanding() {
     return (
     <nav className="flex justify-between bg-auto bg-black">
             <div className="w-45 flex ml-9 p-4 gap-5 text-white justify-between">
-                <NavLink to={"/"}>Home</NavLink>
+                <NavLink to={"/Signup"}>Home</NavLink>
                 <NavLink to={"/category"}>Category</NavLink>
                 <NavLink to={"/"}>Pricing</NavLink>
                 {/* <Button onClick={()=>navigate("/signup")}  text={"Home"} />

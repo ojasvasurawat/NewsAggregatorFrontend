@@ -28,10 +28,10 @@ export default function SignInCard() {
                 <hr className="h-1 my-8 border-0 rounded-sm bg-neutral-200 w-full"></hr>
                 <span className="absolute bg-white p-1">or</span>
             </div>
-            <div className="flex justify-between mt-10 mb-2">
-                <button className="border-2 rounded-xl p-2 flex hover:scale-106 hover:bg-black hover:text-white duration-400 shadow-lg"><img src="src/assets/icons8-google 1.svg" className="pr-1"></img>Sign in with Google</button>
-                <button className="border-2 rounded-xl p-2 flex hover:scale-106 hover:bg-black hover:text-white duration-400 shadow-lg"><img src="src/assets/apple.svg" className="pr-1"></img>Sign in with Apple</button>
-            </div>
+            {/* <div className="flex justify-between mt-10 mb-2">
+                <button className="border-1 border-gray-300 rounded-xl p-2 flex hover:scale-106  duration-400 shadow-lg"><img src="src/assets/icons8-google 1.svg" className="pr-1"></img>Sign in with Google</button>
+                <button className="border-1 border-gray-300 rounded-xl p-2 flex hover:scale-106 duration-400 shadow-lg"><img src="src/assets/apple.svg" className="pr-1"></img>Sign in with Apple</button>
+            </div> */}
             <p className="flex justify-center mt-4">Don't have an account?
                 <p className="text-blue-700 ml-4"><a href="/signup">SignUp</a>
                 </p>

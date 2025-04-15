@@ -6,7 +6,7 @@ export default function BlogCard() {
             <div>
                 <img src="" alt="" />
             </div>
-            <div className="text-left m-8">
+            <div style={{ fontFamily: 'Lato, sans-serif'}} className="text-left m-8 font-lato">
                 <p>Artificial Intelligence (AI) continues to redefine the future, with groundbreaking innovations reshaping industries, economies, and everyday life. From generative AI tools revolutionizing creativity to automation systems transforming manufacturing, the pace of change has reached an unprecedented level.
                     Generative AI technologies, including tools like OpenAI’s ChatGPT-4.5 and image generators such as 4o, are now integrated across sectors—from marketing and entertainment to education and software development. Companies are using AI to create compelling content, simulate product designs, and even write code, drastically reducing time and cost.
                     "We’ve entered the era of collaborative creativity," said Maria Chen, CTO at Lumina Studios. "AI is now part of every creative team, augmenting human imagination."

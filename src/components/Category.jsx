@@ -4,7 +4,6 @@ export default function Category() {
     return (<>
         <h1 className="text-3xl text-center p-4 m-3 mt-7 font-bold ">Category</h1>
         <div className="p-9 m-4 grid grid-cols-4">
-
             <CategoryCard
                 text={"Sports"}
                 image={"src/assets/sports.svg"} />
