@@ -33,7 +33,7 @@ export default function SignUpCard(){
             <button className="border-2 rounded-xl p-2 flex hover:scale-103 shadow-lg"><img src="src/assets/icons8-google 1.svg" className="pr-1"></img>Sign in with Google</button>
             <button className="border-2 rounded-xl p-2 flex hover:scale-103 shadow-lg"><img src="src/assets/icons8-apple-logo 1.svg" className="pr-1"></img>Sign in with Apple</button>
         </div>
-        <p className="flex justify-center mt-4">Don't have an account? 
+        <p className="flex justify-center mt-4">Already have an account? 
             <p className="text-blue-700 ml-4">
             <a href="/signin">SignIn</a>
             </p>
