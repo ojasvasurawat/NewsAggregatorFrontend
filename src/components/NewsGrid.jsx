@@ -3,7 +3,7 @@ import Newscard from "./Newscard";
 export default function NewsGrid(){
     return(<>
     <h1 className="text-center font-bold text-3xl font-sans">Trending Now</h1>
-    <div className="grid grid-cols-3 m-10 gap-5">
+    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-10 gap-5">
         
         <Newscard 
         image="/src/assets/Image (4).svg"
