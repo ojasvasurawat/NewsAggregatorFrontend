@@ -9,7 +9,7 @@ export default function Card2({text1,text2,text3,image}) {
                     <h1 className="text-gray-900 text-4xl">{text1}</h1>
                     <h2 className="text-gray-900">{text2}
                     </h2>
-                    <button className="mt-8 focus:outline-none text-gray-50 bg-black hover:border hover:border-slate-300 hover:bg-black hover:text-slate-50 focus:ring-2 focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-balck dark:focus:ring-gray-2000">{text3}</button>
+                    <button className="mt-8 focus:outline-none text-gray-50 bg-black hover:border hover:border-slate-300 hover:bg-black hover:text-slate-50 focus:ring-2 focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 duration-400 me-2 mb-2 dark:bg-balck dark:focus:ring-gray-2000">{text3}</button>
                 </div>
             </div>
         </>
