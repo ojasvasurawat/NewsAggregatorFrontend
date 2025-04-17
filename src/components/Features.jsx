@@ -8,7 +8,7 @@ export default function Feature() {
             <h3 className="text-gray-900">Who is this app for?</h3>
         </div>
 
-        <div className="flex m-5 justify-between">
+        <div className="flex flex-col md:flex-row m-5 justify-between items-center gap-6">
             <Card1
                 text1={"News Enthusiasts"}
                 text2={"Stay ahead with real-time updates from multiple sources, including Twitter, YouTube, and top news websites. Get personalized news feeds tailored to your interests and never miss a trending story."}
@@ -25,16 +25,18 @@ export default function Feature() {
                 image={"src/assets/r&a.svg"}
             />
         </div>
-        <div>
+        <div className="flex flex-col items-center gap-6 px-4 md:px-10">
             <Card2
                 text1={"Stay Ahead with AI-Powered News"}
                 text2={"Tired of endless scrolling? Our AI-driven platform curates real-time news from Twitter, YouTube, Medium, NY Times, and more—all in one place. Get personalized insights, trending updates, and AI-generated summaries instantly."}
                 image={"src/assets/two_persons.svg"}
+                text3={"Explore More"}
             />
             <Card2
                 text1={"Filter & Personalize Your News Like a Pro"}
                 text2={"No more irrelevant articles! Our platform lets you filter news by topics, sources, and trends from platforms like Reddit, BBC, Forbes, Mashable, Bloomberg, and more. Bookmark, summarize, and stay informed on what truly matters to you."}
                 image={"src/assets/standingGirl.svg"}
+                text3={"Learn More"}
             />
         </div>
     </>

@@ -3,12 +3,12 @@ import FooterText from "./FooterText";
 
 export default function Footer() {
     return (<>
-        <div className="bg-gray-200 text-center mt-20">
+        <div className="bg-gray-200 text-center mt-20 py-6">
             <h1 className="text-3xl p-3 pt-6">Stay Informed, Stay Ahead</h1>
-            <button className="mt-4 focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 font-small rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700">Try It Now</button>
+            <button className="mt-4 focus:outline-none text-gray-50 bg-black hover:border hover:border-slate-300 hover:bg-black hover:text-slate-50 focus:ring-2 focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-balck dark:focus:ring-gray-2000">Try It Now</button>
         </div>
-        <div className="bg-gray-900 text-white flex justify-around p-8">
-            <div><h1 className="text-3xl">BLIp</h1>
+        <div className="bg-black text-white flex justify-around p-8">
+            <div><h1 className="text-3xl font-sans">BLIp</h1>
                 <h2>Copyright © 2020 Landify UI Kit.</h2>
                 <h3>All rights reserved</h3>
                 <div className="flex">
@@ -34,9 +34,9 @@ export default function Footer() {
                 text5={"Privacy policy"}
                 text6={"Status"}
             />
-            <div><h1>Stay up to date</h1>
-                <div className="mt-5">
-                    <input type="text" className="border-2 bg-gray-500 rounded-md" placeholder="Your email address" />
+            <div><h1 className="text-2xl mb-2 font-sans">Stay up to date</h1>
+                <div className="mt-3">
+                    <input type="text" className="border-2 bg-white text-black rounded-md" placeholder="Your email address" />
                 </div>
             </div>
         </div>

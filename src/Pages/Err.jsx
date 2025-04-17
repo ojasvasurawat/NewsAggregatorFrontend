@@ -9,12 +9,11 @@ export default function Err(){
         <h2 className="text-3xl ">Hello, Mate check the url</h2>
          <h1 className="text-9xl animate__backInDown ">ERROR 404</h1>
      
-        <button className="border m-5 p-2 rounded-xl hover:text-amber-50"
+        <button className="border m-5 p-2 rounded-xl hover:text-black hover:font-sans hover:bg-blue-100 "
          onClick={()=>navigate("/")}>
-            Take me to Landing Page
+            Take me back
         </button>
     </div>
-    
     </>
     )
 }
