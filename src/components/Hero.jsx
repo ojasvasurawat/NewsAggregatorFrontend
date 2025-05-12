@@ -1,17 +1,23 @@
 import { useNavigate } from "react-router-dom"
+import Button from "./Button"
 
 export default function Hero() {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     return (<>
-        <div className="p-5 flex flex-col md:flex-row justify-between items-center bg-gray-100 rounded-lg">
-            <div className="m-9 text-center md:text-left">
-                <h1 className="font-serif text-5xl text-black"> Personalized News & Insights Just for You!</h1>
-                <h2 className="text-gray-600 mt-3">Stay updated with curated news from Twitter, YouTube, and top news sources – all in one place.</h2>
-                <button onClick={() => navigate("/signup")} className="m-3 focus:outline-none text-gray-200 bg-black hover:border-slate-300 hover:bg-zinc-700 hover:text-slate-300 focus:ring-2 focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-black dark:focus:ring-gray-200 ease-linear">Get Started</button>
+        <section className="bg-gradient-to-br from-indigo-950 via-[#0f0f1a] to-indigo-950 text-white py-20 px-6 lg:px-24 flex flex-col-reverse lg:flex-row items-center justify-between gap-10 mt-4">
+            <div className="max-w-xl text-center lg:text-left">
+                
+                <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight">
+                    <span className="text-indigo-500 drop-shadow-[0_0_10px_rgba(99,102,241,0.7)]">Curion:</span> Bringing Stories That Matter
+                </h1>
+                <h2 className="text-white mt-4 text-lg">AI-curated news from the sources you trust</h2>
+                
+                <button onClick={() => navigate("/signup")} className="m-3 focus:outline-none bg-indigo-500 hover:bg-indigo-800 text-white px-6 py-3 rounded-full transition shadow-lg shadow-indigo-500/20 ease-linear">Get Started</button>
+                <button onClick={() => navigate("/signup")} className="m-3 border border-white text-white hover:bg-white hover:text-black px-6 py-3 rounded-full transition">Explore Now</button>
             </div>
             <div className="m-5 mt-6 md:mt-0">
-                <img className="hover:scale-110 duration-400" src="src/assets/img.svg" alt="computer" />
+                <img className="hover:scale-105 transition-transform duration-300 max-w-full h-auto" src="src/assets/img.svg" alt="computer" />
             </div>
-        </div>
-        </>)
+        </section>
+    </>)
 }

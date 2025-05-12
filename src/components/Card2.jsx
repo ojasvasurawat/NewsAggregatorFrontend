@@ -1,15 +1,14 @@
 export default function Card2({text1,text2,text3,image}) {
     return (
         <>
-            <div className="flex justify-center place-content-center px-25 py-15 mx-50">
+            <div className="flex flex-col md:flex-row items-center bg-indigo-950 rounded-xl shadow-lg overflow-hidden p-6 md:p-8 max-w-5xl mx-auto">
 
-                <img className="top-0 h-100" src={image} alt="" />
+                <img className="w-full md:w-1/2 object-contain mb-6 md:mb-0 md:mr-6" src={image} alt="" />
 
-                <div className="text-justify  ">
-                    <h1 className="text-gray-900 text-4xl">{text1}</h1>
-                    <h2 className="text-gray-900">{text2}
-                    </h2>
-                    <button className="mt-8 focus:outline-none text-gray-50 bg-black hover:border hover:border-slate-300 hover:bg-black hover:text-slate-50 focus:ring-2 focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 duration-400 me-2 mb-2 dark:bg-balck dark:focus:ring-gray-2000">{text3}</button>
+                <div className="text-left md:text-justify space-y-4">
+                    <h1 className="text-2xl font-semibold text-white">{text1}</h1>
+                    <h2 className="text-indigo-300 text-base leading-relaxed">{text2}</h2>
+                    <button className="mt-4 inline-block text-white bg-indigo-600 hover:bg-indigo-700 font-semibold rounded-lg text-sm px-6 py-2 transition duration-300">{text3}</button>
                 </div>
             </div>
         </>

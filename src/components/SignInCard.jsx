@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 export default function SignInCard() {
     const navigate = useNavigate()
     return (<>
-        <div className="m-40">
+        <div className="m-5 bg-white">
             <h1 className="text-4xl font-bold pb-2">Welcome back!</h1>
             <p className="pb-15">Enter your Credentials to access your account</p>
             <div>

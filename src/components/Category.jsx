@@ -2,7 +2,7 @@ import CategoryCard from "./CategoryCard";
 
 export default function Category() {
     return (<>
-        <h1 className="text-3xl text-center p-4 m-3 mt-7 font-bold ">Category</h1>
+        <h1 className="text-3xl text-center p-4 m-3 mt-0 font-bold ">Category</h1>
         <div className="p-9 m-4 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             <CategoryCard
                 text={"Sports"}

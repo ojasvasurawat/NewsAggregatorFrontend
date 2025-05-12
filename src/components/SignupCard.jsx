@@ -3,18 +3,18 @@ import { useNavigate } from "react-router-dom"
 export default function SignUpCard() {
     const navigate = useNavigate()
     return (<>
-        <div className="m-20 px-20 bg-white">
-            <h1 className="text-4xl font-bold pb-2 my-7">Get Started Now</h1>
+        <div className="m-10 px-5 bg-white">
+            <h1 className="text-4xl font-bold pb-2 pt-4 my-7">Get Started Now</h1>
 
             <div className="flex justify-between">
                 <div>
-                    <p>First Name</p>
-                    <input className="border-2 p-2 border-neutral-300 w-48 rounded-lg" placeholder="Enter Your First Name" type="text" />
+                    <p>Name</p>
+                    <input className="border-2 p-2 border-neutral-300 w-70 rounded-lg" placeholder="Enter Your Name" type="text" />
                 </div>
-                <div>
+                {/* <div>
                     <h1>Last Name</h1>
                     <input className="border-2 p-2 border-neutral-300 w-full rounded-lg" placeholder="Enter Your Last Name" type="text" />
-                </div>
+                </div> */}
             </div>
 
             <div className="mt-4 mb-0">
