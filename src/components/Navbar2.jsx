@@ -8,7 +8,7 @@ export default function NavbarLanding() {
             <div className="flex gap-6 items-center text-white">
                 <NavLink to="/Signup" className="text-2xl font-bold text-indigo-500 drop-shadow-[0_0_10px_rgba(99,102,241,0.7)] hover:text-indigo-400 transition">Curion</NavLink>
                 <NavLink to="/category" className="text-white hover:text-indigo-400 transition">Category</NavLink>
-                <NavLink to="/" className="text-white hover:text-indigo-400 transition">Pricing</NavLink>
+                <NavLink to="/pricing" className="text-white hover:text-indigo-400 transition">Pricing</NavLink>
             </div>
             <div className="flex flex-col md:flex-row items-center gap-2">
                 {/* <button onClick={() => navigate("/signup")} className="bg-indigo-500 hover:bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-medium transition">Sign Up</button>

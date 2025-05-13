@@ -6,7 +6,7 @@ export default function NavbarHome() {
             <div className="flex gap-6 items-center text-white">
                 <NavLink to="/Signup" className="text-2xl font-bold text-indigo-500 drop-shadow-[0_0_10px_rgba(99,102,241,0.7)] hover:text-indigo-400 transition">Curion</NavLink>
                 <NavLink to="/category" className="text-white hover:text-indigo-400 transition">Category</NavLink>
-                <NavLink to="/" className="text-white hover:text-indigo-400 transition">Pricing</NavLink>
+                <NavLink to="/pricing" className="text-white hover:text-indigo-400 transition">Pricing</NavLink>
             </div>
 
             <div className="text-white mt-1">

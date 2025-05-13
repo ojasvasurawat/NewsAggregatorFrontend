@@ -2,7 +2,7 @@ import Newscard from "./Newscard";
 
 export default function NewsGrid(){
     return(<>
-    <h1 className="text-center font-bold text-3xl font-sans">Trending Now</h1>
+    <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-20">Top Stories</h1>
     <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-10 gap-5">
         
         <Newscard 
