@@ -7,10 +7,10 @@ export default function Scrollcard({text1,text2,text3,text4,image}) {
 >
             <div className="p-3 justify-items-center mt-3 z-0 h-full md:h-auto"><img className="w-full h-full object-cover md:h-auto" src={image}/></div>
             <div>
-                <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center p-4 text-white space-y-reverse space-y-2">
+                <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center p-4 text-white drop-shadow-[0_0_2px_blue] space-y-reverse space-y-2">
                     <div className="text-lg md:text-3xl font-bold mb-2 ">{text2}</div>
-                    <div className="text-sm  mb-2 ">{text3}</div>
-                    <div className="text-sm md:text-sm mb-10 "><a href={text1} className="underline hover:text-blue-400">Read More</a></div>
+                    <div className="text-sm md:text-lg mb-2 ">{text3}</div>
+                    <div className="text-sm md:text-base mb-10 "><a href={text1} className="underline hover:text-blue-400">Read More</a></div>
                 </div>
                 <div className="p-3">{text4}</div>
             </div>
