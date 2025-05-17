@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import BlogCard from "../components/BlogCard";
-import NavbarHome from "../components/Navbar";
-import { div } from "motion/react-client";
-import NavbarLanding from "../components/Navbar2";
+import NavbarLanding from "../components/Navbar";
 
 export default function Blog() {
     const [products, setProducts] = useState([]);

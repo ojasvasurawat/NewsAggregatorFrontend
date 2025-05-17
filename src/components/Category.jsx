@@ -4,6 +4,7 @@ import CategoryCard from "./CategoryCard";
 export default function Category() {
     
     return (<>
+    
         <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-20">Category</h1>
         <div className="p-9  grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             <CategoryCard

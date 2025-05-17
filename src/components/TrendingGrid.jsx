@@ -1,18 +1,17 @@
-import Newscard from "./Newscard";
+import TrendingCard from "./TrendingCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function NewsGrid({route, text}){
+export default function TrendingGrid(){
 
      // const [page, setPage] = useState(1);
         const [articles, setArticles] = useState([])
-        const [articles2, setArticles2] = useState([])
         // const [loading, setLoading] = useState(false);
     
     
           useEffect(()=>{
             const items = async ()=>{
-                await axios.get(`http://localhost:8000/${route}`,{
+                await axios.get(`http://localhost:8000/trending`,{
                 headers:{
                     'Content-Type': 'application/json',
                     'authorization': localStorage.getItem('authorization')
@@ -21,7 +20,6 @@ export default function NewsGrid({route, text}){
                 if(response){
                     console.log(response.data);
                     setArticles(response.data.items1);
-                    setArticles2(response.data.items2);
                     // setArticles((prevArticles) => [...prevArticles, ...response.data.items1]);
                     // setLoading(false);
                 }
@@ -35,27 +33,14 @@ export default function NewsGrid({route, text}){
 
 
     return(<>
-    <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-20">{text}</h1>
-    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-10 gap-5">
+    <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-20">Trending</h1>
+    <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 m-10 gap-5">
         
 
         {articles.map((item) => (
-            
             <div>
                                 
-                <Newscard
-                    image={item.img}
-                    text1={item.link}   
-                    text2= {item.title}
-                    text3={item.description}
-                    text4=""
-                />
-            </div>
-        ))}
-        {articles2.map((item) => (
-            <div>
-                                
-                <Newscard
+                <TrendingCard
                     image={item.img}
                     text1={item.link}   
                     text2= {item.title}

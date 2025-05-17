@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import NavbarLanding from "../components/Navbar2";
+import NavbarLanding from "../components/Navbar";
 import axios from "axios";
 import Scrollcard from "../components/ScrollCard";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { AppSidebar } from "@/components/AppSidebar";
 
 export default function Health() {
     // const [page, setPage] = useState(1);
@@ -67,7 +69,10 @@ export default function Health() {
 
     return (
         <>
-            <NavbarLanding />
+        <SidebarProvider className="relative">
+          <AppSidebar />
+          <main>
+            <SidebarTrigger className="fixed bg-white"/>
             {/* <div>
                 {products.map((item) => (
                     <div>
@@ -104,6 +109,8 @@ export default function Health() {
             </div>
             {/* Optional: Render BlogCard if it depends on fetched data */}
             {/* <BlogCard /> */}
+            </main>
+        </SidebarProvider>
         </>
     );
 }

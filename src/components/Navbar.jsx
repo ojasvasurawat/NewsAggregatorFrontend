@@ -10,7 +10,7 @@ export default function NavbarHome() {
             </div>
 
             <div className="text-white mt-1">
-                <NavLink to={"/home"}>Profile ▼ </NavLink>
+                <NavLink to={"/profile"}>Profile ▼ </NavLink>
                 
             </div>
         </nav>

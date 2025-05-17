@@ -24,6 +24,17 @@ import Astrology from './Pages/Astrology';
 import Politics from './Pages/Politics';
 import Health from './Pages/Health';
 import Automobiles from './Pages/Automobiles';
+import Profile from './Pages/Profile';
+import Trending from './Pages/Trending';
+import Latest from './Pages/Latest';
+import MostViewed from './Pages/MostViewed';
+import India from './Pages/India';
+import Asia from './Pages/Asia';
+import Africa from './Pages/Africa';
+import Europe from './Pages/Europe';
+import LatinAmerica from './Pages/LatinAmerica';
+import MiddleEast from './Pages/MiddelEast';
+import UsCanada from './Pages/UsCanada';
 // import { SVGMaskEffectDemo } from './Pages/HoverTest';
 function App() {
   useEffect(() => {
@@ -41,10 +52,9 @@ function App() {
     <Routes>
 
       <Route path='/' element={<Landing/>}></Route>
-      <Route path='/Home' element={<Home/>}></Route>
+      <Route path='/home' element={<Home/>}></Route>
       <Route path='/signin' element={<SignIn/>}></Route>
       <Route path='/signup' element={<SignUp/>}></Route>
-      {/* <Route path='/category'element={<SignUp/>}></Route> */}
       <Route path='*' element={<Err/>}></Route>
       <Route path='/pricing' element={<Pricing/>}></Route>
       <Route path='/blog' element={<Blog/>}></Route>
@@ -62,6 +72,17 @@ function App() {
       <Route path='/politics' element={<Politics/>}></Route>
       <Route path='/health' element={<Health/>}></Route>
       <Route path='/automobiles' element={<Automobiles/>}></Route>
+      <Route path='/profile' element={<Profile/>}></Route>
+      <Route path='/trending' element={<Trending/>}></Route>
+      <Route path='/latest' element={<Latest/>}></Route>
+      <Route path='/mostviewed' element={<MostViewed/>}></Route>
+      <Route path='/india' element={<India/>}></Route>
+      <Route path='/asia' element={<Asia/>}></Route>
+      <Route path='/africa' element={<Africa/>}></Route>
+      <Route path='/europe' element={<Europe/>}></Route>
+      <Route path='/latinamerica' element={<LatinAmerica/>}></Route>
+      <Route path='/middleeast' element={<MiddleEast/>}></Route>
+      <Route path='/usandcanada' element={<UsCanada/>}></Route>
 
 
     </Routes>

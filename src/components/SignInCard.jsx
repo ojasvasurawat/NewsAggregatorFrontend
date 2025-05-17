@@ -23,7 +23,7 @@ export default function SignInCard() {
             if(response){
                 console.log(response.data);
                 localStorage.setItem("authorization", response.data.token);
-                navigate("/Home");
+                navigate("/home");
             }
         })
         }

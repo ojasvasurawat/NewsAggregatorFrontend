@@ -1,13 +1,20 @@
 import Category from "../components/Category"
 import NavbarHome from "../components/Navbar"
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { AppSidebar } from "@/components/AppSidebar";
 
 export default function CatgoryPage(){
     return(
     <>
-    <div className="bg-[#141421]">
-        <NavbarHome/>
-        <Category/>
-        </div>
+        <SidebarProvider className="relative">
+          <AppSidebar />
+          <main className="flex-1">
+            <SidebarTrigger className="fixed bg-white"/>
+              <div className="bg-[#] ">
+                <Category/>
+              </div>
+          </main>
+        </SidebarProvider>
     </>
     )
 }
