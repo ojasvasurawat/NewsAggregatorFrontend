@@ -69,9 +69,9 @@ export default function Automobiles() {
 
     return (
         <>
-        <SidebarProvider className="relative">
+        <SidebarProvider className="relative flex">
           <AppSidebar />
-          <main>
+          <main className="flex-1">
             <SidebarTrigger className="fixed bg-white"/>
             {/* <div>
                 {products.map((item) => (
@@ -84,28 +84,18 @@ export default function Automobiles() {
             <div>
                 {articles.map((item) => (
                     <div>
-                        
                         <Scrollcard
-                        image={item.img}
-                        text1={item.link}   
-                        text2= {item.title}
-                        text3={item.description}
-                        text4=""
-                        />
+                                                items = {articles}
+                                                />
                     </div>
                 ))}
-                {articles2.map((item) => (
-                    <div>
-                        
-                        <Scrollcard
-                        image={item.img}
-                        text1={item.link}   
-                        text2= {item.title}
-                        text3={item.description}
-                        text4=""
-                        />
-                    </div>
-                ))}
+                {/* {articles2.map((item) => (
+                    <div> */}
+                       <Scrollcard
+                                               items = {articles2}
+                                               />
+                    {/* </div>
+                ))} */}
             </div>
             {/* Optional: Render BlogCard if it depends on fetched data */}
             {/* <BlogCard /> */}

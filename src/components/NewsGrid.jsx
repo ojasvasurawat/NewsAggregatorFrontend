@@ -1,5 +1,5 @@
 import Newscard from "./Newscard";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 
 export default function NewsGrid({route, text}){
@@ -8,6 +8,9 @@ export default function NewsGrid({route, text}){
         const [articles, setArticles] = useState([])
         const [articles2, setArticles2] = useState([])
         // const [loading, setLoading] = useState(false);
+        const [currentIndex, setCurrentIndex] = useState(null);
+        const containerRef = useRef(null);
+        
     
     
           useEffect(()=>{
@@ -29,47 +32,80 @@ export default function NewsGrid({route, text}){
             }
     
             items();
-        },[])
+        },[]);
+
+
+
+        useEffect(() => {
+          const handleScroll = () => {
+            const container = containerRef.current;
+            if (!container) return;
+
+            const containerCenter = container.getBoundingClientRect().left + container.clientWidth / 2;
+            const children = Array.from(container.children).filter((child) => child.dataset.card === "true");
+
+            let closest = 0;
+            let minDist = Infinity;
+
+            children.forEach((child, index) => {
+              const rect = child.getBoundingClientRect();
+              const childCenter = rect.left + rect.width / 2;
+              const distance = Math.abs(containerCenter - childCenter);
+
+              if (distance < minDist) {
+                minDist = distance;
+                closest = index;
+              }
+            });
+
+            setCurrentIndex(closest);
+          };
+
+          const handleWheel = (e)=>{
+            if(e.deltaY !== 0 ){
+                e.preventDefault();
+                container.scrollLeft += e.deltaY
+            }  
+          }
+
+          const container = containerRef.current;
+          container?.addEventListener("scroll", handleScroll);
+          container?.addEventListener("wheel", handleWheel, {passive: false});
+          handleScroll(); 
+
+          return () => container?.removeEventListener("scroll", handleScroll);
+        }, []);
     
     
+  const allArticles = [...articles,...articles2];
 
 
     return(<>
-    <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-20">{text}</h1>
-    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-10 gap-5">
-        
+    <div className="overflow-y-hidden">
+      <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-7">{text}</h1>
+      <div className="grid place-content-center min-h-screen ">
+        <div ref={containerRef} className="flex flex-nowrap  m-10 gap-5 overflow-x-auto overscroll-contain items-start [mask-image:linear-gradient(to_right,_#0000,_#000,_#000,_#0000)] 
+            [-webkit-mask-image:linear-gradient(to_right,_#0000,_#000,_#000,_#0000)]" >
 
-        {articles.map((item) => (
-            
-            <div>
-                                
+          <div className="min-w-100"></div>
+
+            {allArticles.map((item, index) => (
+              <div key={index} data-card="true" className="snap-center snap-x snap-mandatory">                   
                 <Newscard
                     image={item.img}
                     text1={item.link}   
                     text2= {item.title}
                     text3={item.description}
                     text4=""
+                    highlight={index === currentIndex}
                 />
-            </div>
-        ))}
-        {articles2.map((item) => (
-            <div>
-                                
-                <Newscard
-                    image={item.img}
-                    text1={item.link}   
-                    text2= {item.title}
-                    text3={item.description}
-                    text4=""
-                />
-            </div>
-        ))}
+              </div>
+            ))}
 
-    </div>
-    <div className="p-2 flex justify-center">
-        <button className="m-3 focus:outline-none text-gray-200 bg-black hover:border hover:border-slate-300 hover:bg-black hover:text-slate-300 focus:ring-2 focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-balck dark:focus:ring-gray-200 ease-linear">
-        ↓ Load More
-        </button>
+          <div className="min-w-100"></div>
+
+        </div>
+      </div>
     </div>
     </>)
 }

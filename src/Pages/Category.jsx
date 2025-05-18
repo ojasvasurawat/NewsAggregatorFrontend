@@ -6,7 +6,7 @@ import { AppSidebar } from "@/components/AppSidebar";
 export default function CatgoryPage(){
     return(
     <>
-        <SidebarProvider className="relative">
+        <SidebarProvider className="relative flex">
           <AppSidebar />
           <main className="flex-1">
             <SidebarTrigger className="fixed bg-white"/>

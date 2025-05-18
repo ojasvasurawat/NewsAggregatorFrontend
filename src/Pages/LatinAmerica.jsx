@@ -6,9 +6,9 @@ import { AppSidebar } from "@/components/AppSidebar";
 // import { useNavigate } from "react-router-dom";
 export default function LatinAmerica(){
     return(<>
-        <SidebarProvider className="relative">
+        <SidebarProvider className="relative flex">
           <AppSidebar />
-          <main>
+          <main className="flex-1">
             <SidebarTrigger className="fixed bg-white"/>
               <div className="bg-[#] ">
                 <NewsGrid route="latinamerica" text="Latin America"/>

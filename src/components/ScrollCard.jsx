@@ -1,21 +1,123 @@
-export default function Scrollcard({text1,text2,text3,text4,image}) {
-    return (
-        <>
-        <div className="p-3 text-black flex flex-col pt-20 relative text-center 
-                bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-gradient-to-br from-indigo-950 via-[#0f0f1a] to-indigo-950 dark:border-white/[0.2] border-black/[0.1] rounded-xl  border 
-                h-screen md:h-auto"
->
-            <div className="p-3 justify-items-center mt-3 z-0 h-full md:h-auto"><img className="w-full h-full object-cover md:h-auto" src={image}/></div>
-            <div>
-                <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center p-4 text-white drop-shadow-[0_0_2px_blue] space-y-reverse space-y-2">
-                    <div className="text-lg md:text-3xl font-bold mb-2 ">{text2}</div>
-                    <div className="text-sm md:text-lg mb-2 ">{text3}</div>
-                    <div className="text-sm md:text-base mb-10 "><a href={text1} className="underline hover:text-blue-400">Read More</a></div>
-                </div>
-                <div className="p-3">{text4}</div>
-            </div>
+// import { useEffect, useRef, useState } from "react"
 
+// export default function Scrollcard({items }) {
+
+//     const [currentIndex, setCurrentIndex] = useState(0);
+//     const containerRef = useRef(null);
+
+//     useEffect( ()=>{
+//         const handleScroll = ()=>{
+//             if(containerRef.current){
+//                 const container = containerRef.current;
+//                 const scrollPosition = container.scrollTop;
+//                 const itemHeight = container.clientHeight;
+//                 const newIndex = Math.floor(scrollPosition/itemHeight);
+
+//                 if(newIndex !== currentIndex){
+//                     setCurrentIndex(newIndex);
+//                 }
+//                 // if(scrollPosition + itemHeight * 2 >= container.scrollHeight && hasMore){
+//                 //     loadMore();
+//                 // }
+//             }
+//         };
+
+//         const container = containerRef.current;
+//         container?.addEventListener('scroll', handleScroll);
+
+//         return ()=> container?.removeEventListener('scroll', handleScroll)
+
+    
+//     },[currentIndex]);
+
+//     return (
+//         <>
+//         <div ref={containerRef} className="p-3 text-black flex flex-col pt-20 relative text-center 
+//                 bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-gradient-to-br from-indigo-950 via-[#0f0f1a] to-indigo-950 dark:border-white/[0.2] border-black/[0.1] rounded-xl  border 
+//                 h-screen md:h-auto"
+// >
+//     {items.map((item)=>{
+//         <>
+//             <div className="p-3 justify-items-center mt-3 z-0 h-full md:h-auto"><img className="w-full h-full object-cover md:h-auto" src={item.img}/></div>
+//             <div>
+//                 <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center p-4 text-white drop-shadow-[0_0_2px_blue] space-y-reverse space-y-2">
+//                     <div className="text-lg md:text-3xl font-bold mb-2 ">{item.title}</div>
+//                     <div className="text-sm md:text-lg mb-2 ">{item.description}</div>
+//                     <div className="text-sm md:text-base mb-10 "><a href={item.link} className="underline hover:text-blue-400">Read More</a></div>
+//                 </div>
+//                 {/* <div className="p-3">{text4}</div> */}
+//             </div>
+//         </>
+//     })}
+            
+//       {<p>No more content.</p>}
+//       {/* {hasMore && loadingComponent} */}
+
+//         </div>
+//         </>
+//     )
+// }
+
+
+
+
+
+
+import { useState, useEffect, useRef } from 'react';
+
+export default function Scrollcard({ items, loadMore, hasMore, loadingComponent }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const containerRef = useRef(null);
+
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (containerRef.current) {
+        const container = containerRef.current;
+        const scrollPosition = container.scrollTop;
+        console.log(container.scrollLeft);
+        const itemHeight = container.clientHeight;
+        console.log(container.clientWidth);
+        const newIndex = Math.floor(scrollPosition / itemHeight);
+
+        if (newIndex !== currentIndex) {
+          setCurrentIndex(newIndex);
+        }
+
+        if (scrollPosition + itemHeight * 2 >= container.scrollHeight && hasMore) {
+          loadMore();
+        }
+      }
+    };
+
+    const container = containerRef.current;
+    container?.addEventListener('scroll', handleScroll);
+    return () => container?.removeEventListener('scroll', handleScroll);
+  }, [currentIndex, hasMore, loadMore]);
+
+  return (
+    <div
+      ref={containerRef}
+      className=" grid h-screen overflow-y-scroll snap-y snap-mandatory justify-items-center"
+    >
+      {items.map((item, index) => (
+        <div
+          key={index}
+          className="relative h-screen snap-start flex justify-center items-center w-103"
+        >
+          <div className="p-3 justify-items-center z-0 h-full "><img className="w-full h-full object-cover" src={item.img}/></div>
+          
+                 <div className=" m-3 absolute inset-x-0 bottom-0 z-10 flex flex-col items-center p-4 text-white drop-shadow-[0_0_2px_blue] space-y-reverse space-y-2 backdrop-blur-xs">
+                     <div className="text-lg md:text-3xl font-bold mb-2 ">{item.title}</div>
+                     {/* <div className="text-sm md:text-lg mb-2 ">{item.description}</div> */}
+                     <div className="text-sm md:text-base mb-10"><a href={item.link} className="underline hover:text-blue-400">Read More</a></div>
+                 </div>
+             
+          
         </div>
-        </>
-    )
+      ))}
+      {!hasMore && <p>No more content.</p>}
+      {hasMore && loadingComponent}
+    </div>
+  );
 }

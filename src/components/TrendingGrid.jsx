@@ -33,7 +33,7 @@ export default function TrendingGrid(){
 
 
     return(<>
-    <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-20">Trending</h1>
+    <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-20 justify-self-center">Trending</h1>
     <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 m-10 gap-5">
         
 
