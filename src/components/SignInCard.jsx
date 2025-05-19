@@ -23,10 +23,11 @@ export default function SignInCard() {
                 email: signinEmail,
                 password: signinPassword
             });
-                console.log(response.data.token);
+                console.log(response.data.user.name);
                 
             if (response.data.token) {
                 localStorage.setItem("authorization", response.data.token);
+                toast.success(`Welcome, ${response.data.user.name}`);
                 navigate("/home");
             }
             else{

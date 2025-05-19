@@ -30,7 +30,7 @@ export default function SignUpCard({ setActiveTab }) {
 
             if (response.data) {
                 toast.success("Account created successfully");
-                toast.success(`Welcome, ${name}`);
+                
 
                 setActiveTab("signin");
             }
