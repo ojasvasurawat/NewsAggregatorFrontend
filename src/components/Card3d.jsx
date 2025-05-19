@@ -5,7 +5,7 @@ const ThreeDCardDemo = ({text1,text2}) => {
   return (
     <CardContainer className="inter-var">
       <CardBody
-        className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-gradient-to-br from-indigo-950 via-[#0f0f1a] to-indigo-950 dark:border-white/[0.2] border-black/[0.1] w-100  h-50 rounded-xl p-6 border"
+        className=" relative group/card hover:shadow-2xl hover:shadow-emerald-500/[0.1] bg-gradient-to-br from-indigo-950 via-[#0f0f1a] to-indigo-950 border-white/[0.2] border-black/[0.1] w-100  h-50 rounded-xl p-6 border"
       >
         <CardItem
           translateZ="70"

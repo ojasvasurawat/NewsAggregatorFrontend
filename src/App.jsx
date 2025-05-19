@@ -5,7 +5,6 @@ import './App.css'
 import { Routes, Route } from "react-router-dom";
 import Home from './Pages/Home'
 import SignIn from './Pages/SignIn'
-import SignUp from './Pages/Signup'
 import Err from './Pages/Err';
 import Landing from './Pages/Landing';
 import Blog from './Pages/Blog';
@@ -35,6 +34,8 @@ import Europe from './Pages/Europe';
 import LatinAmerica from './Pages/LatinAmerica';
 import MiddleEast from './Pages/MiddelEast';
 import UsCanada from './Pages/UsCanada';
+import TopicSelection from './Pages/TopicSelection';
+import { ToastContainer, toast } from 'react-toastify';
 // import { SVGMaskEffectDemo } from './Pages/HoverTest';
 function App() {
   useEffect(() => {
@@ -54,7 +55,6 @@ function App() {
       <Route path='/' element={<Landing/>}></Route>
       <Route path='/home' element={<Home/>}></Route>
       <Route path='/signin' element={<SignIn/>}></Route>
-      <Route path='/signup' element={<SignUp/>}></Route>
       <Route path='*' element={<Err/>}></Route>
       <Route path='/pricing' element={<Pricing/>}></Route>
       <Route path='/blog' element={<Blog/>}></Route>
@@ -83,9 +83,13 @@ function App() {
       <Route path='/latinamerica' element={<LatinAmerica/>}></Route>
       <Route path='/middleeast' element={<MiddleEast/>}></Route>
       <Route path='/usandcanada' element={<UsCanada/>}></Route>
+      <Route path='/topicselection' element={<TopicSelection/>}></Route>
 
 
     </Routes>
+    <ToastContainer
+    position='top-center'
+    />
     </>
   )
 }

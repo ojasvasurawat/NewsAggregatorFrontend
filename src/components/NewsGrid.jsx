@@ -41,7 +41,7 @@ export default function NewsGrid({route, text}){
             const container = containerRef.current;
             if (!container) return;
 
-            const containerCenter = container.getBoundingClientRect().left + container.clientWidth / 2;
+            const containerCenter = container.offsetLeft + container.clientWidth / 2;
             const children = Array.from(container.children).filter((child) => child.dataset.card === "true");
 
             let closest = 0;
@@ -83,7 +83,7 @@ export default function NewsGrid({route, text}){
     return(<>
     <div className="overflow-y-hidden">
       <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-7">{text}</h1>
-      <div className="grid place-content-center min-h-screen ">
+      <div className="grid place-content-center min-h-screen mx-20">
         <div ref={containerRef} className="flex flex-nowrap  m-10 gap-5 overflow-x-auto overscroll-contain items-start [mask-image:linear-gradient(to_right,_#0000,_#000,_#000,_#0000)] 
             [-webkit-mask-image:linear-gradient(to_right,_#0000,_#000,_#000,_#0000)]" >
 
