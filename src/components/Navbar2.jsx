@@ -13,7 +13,7 @@ export default function NavbarLanding() {
             <div className="flex flex-col md:flex-row items-center gap-2">
                 {/* <button onClick={() => navigate("/signup")} className="bg-indigo-500 hover:bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-medium transition">Sign Up</button>
                 <button onClick={() => navigate("/signin")} className="border border-indigo-300 text-indigo-300 hover:bg-indigo-300 hover:text-indigo-950 px-5 py-2 rounded-lg text-sm font-medium transition">Sign In</button> */}
-                <button onClick={() => navigate("/signup")} className="text-white hover: px-5 py-2 rounded-lg bg-gradient-to-br from-indigo-600 via-25% to bg-indigo-400 hover:bg-indigo-700">Signup / Signin</button>
+                <button onClick={() => navigate("/signin")} className="text-white hover: px-5 py-2 rounded-lg bg-gradient-to-br from-indigo-600 via-25% to bg-indigo-400 hover:bg-indigo-700">Signup / Signin</button>
             </div>
         </nav>
     )

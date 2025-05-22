@@ -1,68 +1,106 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify'
 
 export default function SignInCard() {
+    
+    // </>) <div className="space-y-6">
+    const [signinEmail, setSigninEmail] = useState("");
+    const [signinPassword, setSigninPassword] = useState("");
+    const [rememberMe, setRememberMe] = useState(false);
     const navigate = useNavigate()
-        const [email, setEmail] = useState('');
-        const [password, setPassword] = useState('');
-    
-        const handleEmail = (e)=>{
-            setEmail(e.target.value);
-        };
-        const handlePassword = (e)=>{
-            setPassword(e.target.value);
-        };
-    
-        const signin = async ()=>{
-            console.log( email, password);
-            await axios.post('http://localhost:8000/signin',{
-            email,
-            password
-        }).then((response)=>{
-            if(response){
-                console.log(response.data);
+
+    const handleSignin = async () => {
+
+        if (signinPassword === "" || signinEmail === "" ) {
+            toast.warning("Enter the details");
+            return;
+        }
+
+        // try {
+            const response = await axios.post("http://localhost:8000/signin", {
+                email: signinEmail,
+                password: signinPassword
+            });
+                console.log(response.data.user.name);
+                
+            if (response.data.token) {
                 localStorage.setItem("authorization", response.data.token);
+                toast.success(`Welcome, ${response.data.user.name}`);
                 navigate("/home");
             }
-        })
-        }
-    return (<>
-        <div className="m-5 bg-white">
-            <h1 className="text-4xl font-bold pb-2">Welcome back!</h1>
-            <p className="pb-15">Enter your Credentials to access your account</p>
-            <div>
-                <p>Email Address</p>
-                <input className="border-2 p-2 border-neutral-300 w-full rounded-lg" type="text" placeholder="Enter your email" onChange={handleEmail}/>
-            </div>
-            <div className="flex justify-between pt-4">
-                <p>Password</p>
-                <h1>Forgot password</h1>
-            </div>
-            <input className="border-2 p-2 border-neutral-300 w-full rounded-lg" type="text" placeholder="Enter your password" onChange={handlePassword}/>
-            <div className="pt-4">
-                <input className="" type="checkbox" />
-                <span className="p-1">Stay signed in</span>
-            </div>
-            <div className="pt-4">
-                <button onClick={signin} className="bg-black font-bold p-2 text-white rounded-xl hover:scale-105 duration-400 w-full">
-                    Login
-                </button>
-            </div>
-            <div className="flex items-center justify-center">
-                <hr className="h-1 my-8 border-0 rounded-sm bg-neutral-200 w-full"></hr>
-                <span className="absolute bg-white p-1">or</span>
-            </div>
-            {/* <div className="flex justify-between mt-10 mb-2">
-                <button className="border-1 border-gray-300 rounded-xl p-2 flex hover:scale-106  duration-400 shadow-lg"><img src="src/assets/icons8-google 1.svg" className="pr-1"></img>Sign in with Google</button>
-                <button className="border-1 border-gray-300 rounded-xl p-2 flex hover:scale-106 duration-400 shadow-lg"><img src="src/assets/apple.svg" className="pr-1"></img>Sign in with Apple</button>
-            </div> */}
-            <p className="flex justify-center mt-4">Don't have an account?
-                <p className="text-blue-700 ml-4"><a href="/signup">SignUp</a>
-                </p>
-            </p>
+            else{
+                toast.error("Login Failed")
+            }
+        // } 
+        // catch (error) {
+            
+        //     toast.error("Login failed:", error)
+       
+        // }
+    };
 
+
+    return (
+        <div className="space-y-6">
+            <h2 className="text-3xl font-bold text-gray-900">Welcome back</h2>
+            <p className="text-gray-600">Enter your credentials to access your account</p>
+
+            <div className="space-y-4">
+                <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                        Email Address
+                    </label>
+                    <input
+                        id="email"
+                        type="email"
+                        value={signinEmail}
+                        onChange={(e) => setSigninEmail(e.target.value)}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Enter your email"
+                    />
+                </div>
+
+                <div>
+                    <div className="flex justify-between mb-1">
+                        <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                            Password
+                        </label>
+                        <a href="#" className="text-sm text-blue-600 hover:underline">
+                            Forgot password?
+                        </a>
+                    </div>
+                    <input
+                        id="password"
+                        type="password"
+                        value={signinPassword}
+                        onChange={(e) => setSigninPassword(e.target.value)}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Enter your password"
+                    />
+                </div>
+
+                <div className="flex items-center">
+                    <input
+                        id="remember-me"
+                        type="checkbox"
+                        checked={rememberMe}
+                        onChange={(e) => setRememberMe(e.target.checked)}
+                        className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    />
+                    <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700">
+                        Stay signed in
+                    </label>
+                </div>
+            </div>
+
+            <button
+                onClick={handleSignin}
+                className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-900 text-white font-medium rounded-lg transition duration-200"
+            >
+                Sign In
+            </button>
         </div>
-
-    </>)
+    )
 }

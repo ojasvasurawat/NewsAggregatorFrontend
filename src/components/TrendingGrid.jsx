@@ -33,7 +33,7 @@ export default function TrendingGrid(){
 
 
     return(<>
-    <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-20">Trending</h1>
+    <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-20 justify-self-center">Trending</h1>
     <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 m-10 gap-5">
         
 
@@ -51,10 +51,10 @@ export default function TrendingGrid(){
         ))}
 
     </div>
-    <div className="p-2 flex justify-center">
+    {/* <div className="p-2 flex justify-center">
         <button className="m-3 focus:outline-none text-gray-200 bg-black hover:border hover:border-slate-300 hover:bg-black hover:text-slate-300 focus:ring-2 focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-balck dark:focus:ring-gray-200 ease-linear">
         ↓ Load More
         </button>
-    </div>
+    </div> */}
     </>)
 }
