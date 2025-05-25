@@ -1,7 +1,20 @@
 import { useNavigate } from "react-router-dom"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify'
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import TopicsButton from "./TopicsButton";
+
 
 export default function SignUpCard({ setActiveTab }) {
 
@@ -9,6 +22,9 @@ export default function SignUpCard({ setActiveTab }) {
     const [signupEmail, setSignupEmail] = useState("");
     const [signupPassword, setSignupPassword] = useState("");
     const [agreeToTerms, setAgreeToTerms] = useState(false);
+    const dialogTriggerRef = useRef(null);
+    const [countFromChild, setCountFromChild] = useState(0);
+    const [topicsFromChild, setTopicsFromChild] = useState([]);
 
 
     const handleSignup = async () => {
@@ -30,9 +46,7 @@ export default function SignUpCard({ setActiveTab }) {
 
             if (response.data) {
                 toast.success("Account created successfully");
-                
-
-                setActiveTab("signin");
+                dialogTriggerRef.current.click();
             }
         } catch (error) {
             console.error("Signup failed:", error);
@@ -43,6 +57,29 @@ export default function SignUpCard({ setActiveTab }) {
             }
         }
     };
+
+    function handleCountFromChild(count) {
+        setCountFromChild(count);
+        console.log(countFromChild);
+    }
+
+    function handleTopicsFromChild(topics) {
+        setTopicsFromChild(topics);
+        console.log(topicsFromChild);
+    }
+
+    async function transferData(){
+        try {
+            await axios.post("http://localhost:8000/topics", {
+                email: signupEmail,
+                topics: topicsFromChild
+            });
+
+            setActiveTab("signin");
+        } catch (err) {
+            console.log("the error is : ",err);
+        }
+    }
 
 
     return (<>
@@ -113,6 +150,36 @@ export default function SignUpCard({ setActiveTab }) {
             >
                 Create Account
             </button>
+
+            <AlertDialog>
+            <AlertDialogTrigger ref={dialogTriggerRef}></AlertDialogTrigger>
+            <AlertDialogContent>
+                <AlertDialogHeader>
+                <AlertDialogTitle className="text-2xl">Welcome To Curion</AlertDialogTitle>
+                <AlertDialogDescription>
+                    Follow what interests you to personalize Curion. Follow at least 3 topics before continuing 
+                </AlertDialogDescription>
+                </AlertDialogHeader>
+                <div className="grid grid-cols-3 gap-5 my-5">
+                    <TopicsButton text="Business" sendCountToParent={handleCountFromChild} sendTopicsToParent={handleTopicsFromChild} /> 
+                    <TopicsButton text="Politics" sendCountToParent={handleCountFromChild} sendTopicsToParent={handleTopicsFromChild} /> 
+                    <TopicsButton text="Science" sendCountToParent={handleCountFromChild} sendTopicsToParent={handleTopicsFromChild} /> 
+                    <TopicsButton text="Sports" sendCountToParent={handleCountFromChild} sendTopicsToParent={handleTopicsFromChild} /> 
+                    <TopicsButton text="Technology" sendCountToParent={handleCountFromChild} sendTopicsToParent={handleTopicsFromChild} /> 
+                    <TopicsButton text="Automobiles" sendCountToParent={handleCountFromChild} sendTopicsToParent={handleTopicsFromChild} /> 
+                    <TopicsButton text="Entertainment" sendCountToParent={handleCountFromChild} sendTopicsToParent={handleTopicsFromChild} /> 
+                    <TopicsButton text="Health" sendCountToParent={handleCountFromChild} sendTopicsToParent={handleTopicsFromChild} /> 
+                    <TopicsButton text="Lifestyle" sendCountToParent={handleCountFromChild} sendTopicsToParent={handleTopicsFromChild} /> 
+                    <TopicsButton text="Education" sendCountToParent={handleCountFromChild} sendTopicsToParent={handleTopicsFromChild} /> 
+                    <TopicsButton text="Environment" sendCountToParent={handleCountFromChild} sendTopicsToParent={handleTopicsFromChild} /> 
+                    <TopicsButton text="Astrology" sendCountToParent={handleCountFromChild} sendTopicsToParent={handleTopicsFromChild} /> 
+                </div>
+                <AlertDialogFooter >
+                <AlertDialogAction className={`w-1/2 bg-blue-300 hover:bg-blue-600 ${countFromChild>=3 ? "bg-blue-600 hover:bg-blue-900" : ""}`} onClick={countFromChild>=3 && transferData }>Follow 3 to continue</AlertDialogAction>
+                </AlertDialogFooter>
+            </AlertDialogContent>
+            </AlertDialog>
+
 
         </div>
     </>)

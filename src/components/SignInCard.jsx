@@ -23,7 +23,7 @@ export default function SignInCard() {
                 email: signinEmail,
                 password: signinPassword
             });
-                console.log(response.data.user.name);
+                // console.log(response.data.user.name);
                 
             if (response.data.token) {
                 localStorage.setItem("authorization", response.data.token);
