@@ -82,12 +82,11 @@ export default function NewsGrid({route, text}){
 
     return(<>
     <div className="overflow-y-hidden">
-      <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-7">{text}</h1>
+      <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-5">{text}</h1>
       <div className="grid place-content-center min-h-screen mx-0">
-        <div ref={containerRef} className="flex flex-nowrap  m-10 gap-5 overflow-x-auto overscroll-contain items-start [mask-image:linear-gradient(to_right,_#0000,_#000,_#000,_#0000)] 
-            [-webkit-mask-image:linear-gradient(to_right,_#0000,_#000,_#000,_#0000)]" >
+        <div ref={containerRef} className="flex flex-nowrap  m-10 gap-5 overflow-x-auto overscroll-contain items-start " >
 
-          <div className="md:min-w-20 lg:min-w-90"></div>
+          {/* <div className="md:min-w-20 lg:min-w-90"></div> */}
 
             {allArticles.map((item, index) => (
               <div key={index} data-card="true" className="snap-center snap-x snap-mandatory">                   
@@ -102,7 +101,7 @@ export default function NewsGrid({route, text}){
               </div>
             ))}
 
-          <div className="md:min-w-20 lg:min-w-90"></div>
+          {/* <div className="md:min-w-20 lg:min-w-90"></div> */}
 
         </div>
       </div>

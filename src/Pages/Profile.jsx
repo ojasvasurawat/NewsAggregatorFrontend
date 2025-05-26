@@ -108,6 +108,28 @@ export default function Profile() {
         }
     };
 
+    const handleLogout = async()=>{
+        try{const response = await axios.post("http://localhost:8000/logout",{
+                
+            },{
+                headers:{
+                    'Content-Type': 'application/json',
+                    'authorization': localStorage.getItem('authorization')
+                }
+            })
+        if (response) {
+            localStorage.setItem("authorization", "");
+            toast.success("Logout successfully");
+            navigate("/");
+        }
+        else{
+            toast.error("Logout Failed")
+        }
+        }catch(e){
+            console.log("the error is :",e);
+        }
+    }
+
    
     return (
         <>
@@ -118,7 +140,7 @@ export default function Profile() {
             <div>
                 
                 <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-7">Profile</h1>
-                <div className=" justify-self-center mt-10 h-150 border rounded-xl w-120">
+                <div className=" justify-self-center mt-10 h-150 border rounded-xl w-90 md:w-120">
                     <div className="space-y-6">
                         <h2 className="text-center text-3xl font-bold text-gray-900">Edit Profile</h2>
 
@@ -175,6 +197,13 @@ export default function Profile() {
                             className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-900 text-white font-medium rounded-lg transition duration-200"
                         >
                             Update
+                        </button>
+
+                        <button
+                            onClick={handleLogout}
+                            className="w-full py-3 px-4 bg-red-400 hover:bg-red-600 text-white font-medium rounded-lg transition duration-200"
+                        >
+                            logout
                         </button>
                     </div>
 

@@ -29,7 +29,7 @@ export default function Scrollcard({ items }) {
   return (
     <div
       ref={containerRef}
-      className=" grid h-screen overflow-y-scroll snap-y snap-mandatory justify-items-center"
+      className=" grid h-screen overflow-y-scroll snap-y snap-mandatory justify-items-center mt-5"
     >
       {items.map((item, index) => (
         <div

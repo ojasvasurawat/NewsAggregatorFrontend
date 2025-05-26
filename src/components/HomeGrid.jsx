@@ -28,8 +28,7 @@ export default function HomeGrid(){
     console.log(topics);
 
     return(<>
-    <div className="ml-7">
-    <div>Home</div>
+    <div className="ml-7 ">
         <HomeCard text="Top Stories"/>
         {topics.map((item, index)=>{
             return(
