@@ -1,12 +1,13 @@
 import TrendingCard from "./TrendingCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Skeleton } from "./ui/skeleton";
 
 export default function TrendingGrid(){
 
      // const [page, setPage] = useState(1);
         const [articles, setArticles] = useState([])
-        // const [loading, setLoading] = useState(false);
+        const [loading, setLoading] = useState(false);
     
     
           useEffect(()=>{
@@ -21,7 +22,7 @@ export default function TrendingGrid(){
                     console.log(response.data);
                     setArticles(response.data.items1);
                     // setArticles((prevArticles) => [...prevArticles, ...response.data.items1]);
-                    // setLoading(false);
+                    setLoading(true);
                 }
             })
             }
@@ -33,7 +34,9 @@ export default function TrendingGrid(){
 
 
     return(<>
-    <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-20 justify-self-center">Trending</h1>
+{!loading ? (
+        <>
+        <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-20 justify-self-center">Trending</h1>
     <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 m-10 gap-5">
         
 
@@ -51,10 +54,42 @@ export default function TrendingGrid(){
         ))}
 
     </div>
-    {/* <div className="p-2 flex justify-center">
-        <button className="m-3 focus:outline-none text-gray-200 bg-black hover:border hover:border-slate-300 hover:bg-black hover:text-slate-300 focus:ring-2 focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-balck dark:focus:ring-gray-200 ease-linear">
-        ↓ Load More
-        </button>
-    </div> */}
+    </>
+    ) :
+    (   <>
+        <Skeleton className="h-8 w-1/4 m-5 mt-20 justify-self-center" />
+        <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 m-10 gap-5">
+        
+
+        <div>
+            <div className="pr-8 m-8 hover:scale-105 duration-500 text-black md:grid md:grid-cols-3 rounded-xl border">
+                <Skeleton className="w-full p-3 m-4 md:h-50 rounded-xl" />
+                <div className="col-span-2">
+                    <Skeleton className="h-6 w-full m-5" />
+                    <Skeleton className="h-6 w-1/2 m-5" />
+                    <Skeleton className="h-4 w-full m-5" />
+                    <Skeleton className="h-4 w-full m-5" />
+                    <Skeleton className="h-4 w-1/2 m-5" />
+                    <Skeleton className="h-2 w-1/4 m-5" />
+                </div>
+            </div>
+            <div className="pr-8 m-8 hover:scale-105 duration-500 text-black md:grid md:grid-cols-3 rounded-xl border">
+                <Skeleton className="w-full p-3 m-4 md:h-50 rounded-xl" />
+                <div className="col-span-2">
+                    <Skeleton className="h-6 w-full m-5" />
+                    <Skeleton className="h-6 w-1/2 m-5" />
+                    <Skeleton className="h-4 w-full m-5" />
+                    <Skeleton className="h-4 w-full m-5" />
+                    <Skeleton className="h-4 w-1/2 m-5" />
+                    <Skeleton className="h-2 w-1/4 m-5" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </>
+    )
+    }
+    
     </>)
 }

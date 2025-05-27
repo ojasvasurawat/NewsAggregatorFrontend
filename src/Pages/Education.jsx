@@ -4,12 +4,14 @@ import axios from "axios";
 import Scrollcard from "../components/ScrollCard";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/AppSidebar";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Education() {
     
     const [articles, setArticles] = useState([]);
     const [articles2, setArticles2] = useState([]);
     const [articles3, setArticles3] = useState([]);
+    const [loading, setLoading] = useState(false);
 
 
       useEffect(()=>{
@@ -25,6 +27,7 @@ export default function Education() {
                 setArticles(response.data.items1);
                 setArticles2(response.data.items2);
                 setArticles3(response.data.items3);
+                setLoading(true);
             }
         })
         }
@@ -43,9 +46,33 @@ export default function Education() {
           <AppSidebar />
           <main className="flex-1">
             <SidebarTrigger className="fixed bg-white"/>
-            <div>
-              <Scrollcard items = {allArticles} />
-            </div>
+{loading ? (
+                <div>
+                    <Scrollcard items = {allArticles} />
+                </div>
+            ):(
+                <>
+
+                    <div
+                    className=" grid h-screen overflow-y-scroll snap-y snap-mandatory justify-items-center mt-5"
+                    >
+                        <div
+                        className="relative h-screen snap-start flex justify-center items-center w-103"
+                        >
+                        <div className="p-3 justify-items-center z-0 h-full "></div>
+                        
+                                <div className=" m-3 absolute inset-x-0 bottom-0 z-10 flex flex-col items-center p-4 text-white drop-shadow-[0_0_2px_blue] space-y-reverse space-y-2 backdrop-blur-xs">
+                                    <Skeleton className="h-6 w-full mb-2" />
+                                    {/* <div className="text-sm md:text-lg mb-2 ">{item.description}</div> */}
+                                    <Skeleton className="h-4 w-1/4 mb-10" />
+                                </div>
+                            
+                        
+                        </div>
+                    
+                    </div>
+                </>
+            )}
           </main>
         </SidebarProvider>
         </>
