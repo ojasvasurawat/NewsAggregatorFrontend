@@ -1,13 +1,15 @@
 import Newscard from "./Newscard";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import TrendingCard from "./TrendingCard";
+import { Skeleton } from "./ui/skeleton";
 
 export default function NewsGrid({route, text}){
 
      // const [page, setPage] = useState(1);
         const [articles, setArticles] = useState([])
         const [articles2, setArticles2] = useState([])
-        // const [loading, setLoading] = useState(false);
+        const [loading, setLoading] = useState(false);
         const [currentIndex, setCurrentIndex] = useState(null);
         const containerRef = useRef(null);
         
@@ -26,7 +28,7 @@ export default function NewsGrid({route, text}){
                     setArticles(response.data.items1);
                     setArticles2(response.data.items2);
                     // setArticles((prevArticles) => [...prevArticles, ...response.data.items1]);
-                    // setLoading(false);
+                    setLoading(true);
                 }
             })
             }
@@ -36,76 +38,107 @@ export default function NewsGrid({route, text}){
 
 
 
-        useEffect(() => {
-          const handleScroll = () => {
-            const container = containerRef.current;
-            if (!container) return;
+        // useEffect(() => {
+        //   const handleScroll = () => {
+        //     const container = containerRef.current;
+        //     if (!container) return;
 
-            const containerCenter = container.offsetLeft + container.clientWidth / 2;
-            const children = Array.from(container.children).filter((child) => child.dataset.card === "true");
+        //     const containerCenter = container.offsetLeft + container.clientWidth / 2;
+        //     const children = Array.from(container.children).filter((child) => child.dataset.card === "true");
 
-            let closest = 0;
-            let minDist = Infinity;
+        //     let closest = 0;
+        //     let minDist = Infinity;
 
-            children.forEach((child, index) => {
-              const rect = child.getBoundingClientRect();
-              const childCenter = rect.left + rect.width / 2;
-              const distance = Math.abs(containerCenter - childCenter);
+        //     children.forEach((child, index) => {
+        //       const rect = child.getBoundingClientRect();
+        //       const childCenter = rect.left + rect.width / 2;
+        //       const distance = Math.abs(containerCenter - childCenter);
 
-              if (distance < minDist) {
-                minDist = distance;
-                closest = index;
-              }
-            });
+        //       if (distance < minDist) {
+        //         minDist = distance;
+        //         closest = index;
+        //       }
+        //     });
 
-            setCurrentIndex(closest);
-          };
+        //     setCurrentIndex(closest);
+        //   };
 
-          const handleWheel = (e)=>{
-            if(e.deltaY !== 0 ){
-                e.preventDefault();
-                container.scrollLeft += e.deltaY
-            }  
-          }
+        //   const handleWheel = (e)=>{
+        //     if(e.deltaY !== 0 ){
+        //         e.preventDefault();
+        //         container.scrollLeft += e.deltaY
+        //     }  
+        //   }
 
-          const container = containerRef.current;
-          container?.addEventListener("scroll", handleScroll);
-          container?.addEventListener("wheel", handleWheel, {passive: false});
-          handleScroll(); 
+        //   const container = containerRef.current;
+        //   container?.addEventListener("scroll", handleScroll);
+        //   container?.addEventListener("wheel", handleWheel, {passive: false});
+        //   handleScroll(); 
 
-          return () => container?.removeEventListener("scroll", handleScroll);
-        }, []);
+        //   return () => container?.removeEventListener("scroll", handleScroll);
+        // }, []);
     
     
   const allArticles = [...articles,...articles2];
 
 
     return(<>
-    <div className="overflow-y-hidden">
-      <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-7">{text}</h1>
-      <div className="grid place-content-center min-h-screen mx-0">
-        <div ref={containerRef} className="flex flex-nowrap  m-10 gap-5 overflow-x-auto overscroll-contain items-start [mask-image:linear-gradient(to_right,_#0000,_#000,_#000,_#0000)] 
-            [-webkit-mask-image:linear-gradient(to_right,_#0000,_#000,_#000,_#0000)]" >
+    {loading ? (
+        <>
+        <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-20 justify-self-center">{text}</h1>
+    <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 m-10 gap-5">
+        
 
-          <div className="md:min-w-20 lg:min-w-90"></div>
-
-            {allArticles.map((item, index) => (
-              <div key={index} data-card="true" className="snap-center snap-x snap-mandatory">                   
-                <Newscard
+        {allArticles.map((item) => (
+            <div>
+                                
+                <TrendingCard
                     image={item.img}
                     text1={item.link}   
                     text2= {item.title}
                     text3={item.description}
                     text4=""
-                    highlight={index === currentIndex}
                 />
-              </div>
-            ))}
+            </div>
+        ))}
 
-          <div className="md:min-w-20 lg:min-w-90"></div>
-
-        </div>
-      </div>
     </div>
+    </>
+    ) :
+    (   <>
+        <Skeleton className="h-8 w-1/4 m-5 mt-20 justify-self-center" />
+        <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 m-10 gap-5">
+        
+
+        <div>
+            <div className="pr-8 m-8 hover:scale-105 duration-500 text-black md:grid md:grid-cols-3 rounded-xl border">
+                <Skeleton className="w-full p-3 m-4 h-50 rounded-xl" />
+                <div className="col-span-2">
+                    <Skeleton className="h-6 w-full m-5" />
+                    <Skeleton className="h-6 w-1/2 m-5" />
+                    <Skeleton className="h-4 w-full m-5" />
+                    <Skeleton className="h-4 w-full m-5" />
+                    <Skeleton className="h-4 w-1/2 m-5" />
+                    <Skeleton className="h-2 w-1/4 m-5" />
+                </div>
+            </div>
+            <div className="pr-8 m-8 hover:scale-105 duration-500 text-black md:grid md:grid-cols-3 rounded-xl border">
+                <Skeleton className="w-full p-3 m-4 h-50 rounded-xl" />
+                <div className="col-span-2">
+                    <Skeleton className="h-6 w-full m-5" />
+                    <Skeleton className="h-6 w-1/2 m-5" />
+                    <Skeleton className="h-4 w-full m-5" />
+                    <Skeleton className="h-4 w-full m-5" />
+                    <Skeleton className="h-4 w-1/2 m-5" />
+                    <Skeleton className="h-2 w-1/4 m-5" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </>
+    )
+    }
+    
     </>)
 }

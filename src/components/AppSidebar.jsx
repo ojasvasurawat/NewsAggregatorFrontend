@@ -1,4 +1,4 @@
-import {Home, Calendar, Settings, Bell, MessageSquare, BookOpen, Folder, Video, User, LogOut, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react"
+import {Home, Newspaper, LayoutGrid , Landmark, Tag, Megaphone, TvMinimalPlay, User, TrendingUp, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react"
 
 import {
   Sidebar,
@@ -18,6 +18,7 @@ import {
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible"
 import axios from "axios"
 import { useState , useEffect} from "react"
+import WorldButton from "./WorldButton"
 
 
 const items = [
@@ -30,49 +31,47 @@ const items = [
   {
     title: "Category",
     url: "/category",
-    icon: Home,
+    icon: LayoutGrid,
     notification: null,
   },
   {
     title: "Pricing",
     url: "/pricing",
-    icon: Calendar,
+    icon: Tag,
     notification: null,
   },
   {
-    title: "Trending",
-    url: "/trending",
-    icon: Bell,
+    title: "Top Stories",
+    url: "/topstories",
+    icon: Newspaper,
     notification: null,
   },
   {
     title: "India",
     url: "/india",
-    icon: MessageSquare,
+    icon: Landmark,
     notification: null,
   },
   {
     title: "Latest",
     url: "/latest",
-    icon: Folder,
+    icon: Megaphone,
     notification: null,
   },
   {
     title: "Most Viewed",
     url: "/mostviewed",
-    icon: Video,
+    icon: TvMinimalPlay,
+    notification: null,
+  },
+  {
+    title: "Trending",
+    url: "/trending",
+    icon: TrendingUp,
     notification: null,
   },
 ]
 
-const footerItems =[
-  {
-    title: "Profile",
-    url: "/profile",
-    icon: User,
-    notification: null,
-  },
-]
 
 const world = [
     {
@@ -112,6 +111,7 @@ const world = [
 export function AppSidebar() {
 
     const [name, setName] = useState("");
+    const [avatarUrl, setAvatarUrl] = useState("");
 
     useEffect(()=>{
         const fun = async ()=>{
@@ -123,6 +123,7 @@ export function AppSidebar() {
         }).then((response)=>{
             if(response){
                 setName(response.data.user.name);
+                setAvatarUrl(response.data.user.avatarUrl);
             }else{
                 console.log("no response from get info")
             }
@@ -150,7 +151,7 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <a href={item.url}>
-                      {/* <item.icon /> */}
+                      <item.icon />
                       <span>{item.title}</span>
                     </a>
                   </SidebarMenuButton>
@@ -161,10 +162,7 @@ export function AppSidebar() {
               <Collapsible defaultOpen className="group/collapsible">
                 <SidebarMenuItem>
                     <CollapsibleTrigger className="w-full">
-                        <SidebarMenuButton >
-                        World
-                        <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90 items-end" />
-                        </SidebarMenuButton>
+                      <WorldButton/>
                     </CollapsibleTrigger>
                     <CollapsibleContent>
                         <SidebarMenuSub>
@@ -188,17 +186,15 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        {footerItems.map((item) => (
-          <SidebarMenuItem key={item.title}>
+          <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <a href={item.url}>
-                <item.icon />
-                <span>{item.title}</span>
+              <a href="/profile">
+              {avatarUrl ? <img className="w-5 h-5 object-cover rounded-full" src={avatarUrl}/> : <User/>}
+                {/* <User/><img className="w-5" src={avatarUrl}/> */}
+                <span>Profile</span>
               </a>
             </SidebarMenuButton>
-            <SidebarMenuBadge>{item.notification}</SidebarMenuBadge>
           </SidebarMenuItem>
-        ))}
       </SidebarFooter>  
     </Sidebar>
   )
