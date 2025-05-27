@@ -29,7 +29,7 @@ export default function HomeCard({text}){
         },[]);
 
     return(<>
-      <h1 className="m-5 font-bold text-3xl font-sans text-indigo-500 pt-7">{text}</h1>
+      <h1 className="m-5 font-bold text-3xl font-sans text-indigo-500 pt-7"><a href={`/${route}`} className="underline hover:text-blue-400">{text}</a></h1>
         {!loading && (
         <div className="m-5">
             <div className="grid md:grid-cols-2 mb-10">

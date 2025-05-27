@@ -36,6 +36,7 @@ import MiddleEast from './Pages/MiddelEast';
 import UsCanada from './Pages/UsCanada';
 import TopicSelection from './Pages/TopicSelection';
 import { ToastContainer, toast } from 'react-toastify';
+import TopStories from './Pages/TopStories';
 // import { SVGMaskEffectDemo } from './Pages/HoverTest';
 function App() {
   useEffect(() => {
@@ -84,6 +85,7 @@ function App() {
       <Route path='/middleeast' element={<MiddleEast/>}></Route>
       <Route path='/usandcanada' element={<UsCanada/>}></Route>
       <Route path='/topicselection' element={<TopicSelection/>}></Route>
+      <Route path='/topstories' element={<TopStories/>}></Route>
 
 
     </Routes>

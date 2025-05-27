@@ -1,4 +1,4 @@
-import {Home, Calendar, LayoutGrid , Landmark, Tag, Megaphone, TvMinimalPlay, User, TrendingUp, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react"
+import {Home, Newspaper, LayoutGrid , Landmark, Tag, Megaphone, TvMinimalPlay, User, TrendingUp, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react"
 
 import {
   Sidebar,
@@ -41,9 +41,9 @@ const items = [
     notification: null,
   },
   {
-    title: "Trending",
-    url: "/trending",
-    icon: TrendingUp,
+    title: "Top Stories",
+    url: "/topstories",
+    icon: Newspaper,
     notification: null,
   },
   {
@@ -62,6 +62,12 @@ const items = [
     title: "Most Viewed",
     url: "/mostviewed",
     icon: TvMinimalPlay,
+    notification: null,
+  },
+  {
+    title: "Trending",
+    url: "/trending",
+    icon: TrendingUp,
     notification: null,
   },
 ]
