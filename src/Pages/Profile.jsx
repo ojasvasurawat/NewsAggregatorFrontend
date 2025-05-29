@@ -244,11 +244,21 @@ export default function Profile() {
                                 <div className="h-50 w-100  md:w-1/4 border rounded-xl justify-items-center">
                                     New Avatar
                                     <img className="mt-5 w-30 h-30 object-cover rounded-full" src={avatarUrl}/>
-                                </div>                            ) : (
-                                <div className="h-50 w-90  md:w-1/4 border rounded-xl justify-items-center">
-                                    Old Avatar
-                                    <img className="mt-5 w-30 h-30 object-cover rounded-full" src={oldAvatarUrl}/>
-                                </div>
+                                </div>                           
+                                ) : (
+                                    
+                                        oldAvatarUrl ? (
+                                            <div className="h-50 w-90  md:w-1/4 border rounded-xl justify-items-center">
+                                                Old Avatar
+                                                <img className="mt-5 w-30 h-30 object-cover rounded-full" src={oldAvatarUrl}/>
+                                            </div>
+                                        ) : (
+                                            <div className="h-50 w-90  md:w-1/4 border rounded-xl justify-items-center">
+                                                No Avatar
+                                            </div>
+                                        )
+                                    
+                                
                             )}
                             <button className=" mt-3 py-2 px-4 bg-blue-600 hover:bg-blue-900 text-white font-medium rounded-lg transition duration-200" onClick={handleButtonClick}>Upload Avatar</button>
                             <input
