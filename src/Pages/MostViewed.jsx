@@ -9,7 +9,7 @@ export default function MostViewed(){
         <SidebarProvider className="relative flex">
           <AppSidebar />
           <main className="flex-1">
-            <SidebarTrigger className="fixed bg-white"/>
+            <SidebarTrigger className="fixed bg-white z-10"/>
               <div className="bg-[#] ">
                 <NewsGrid route="most_viewed" text="Most Viewed"/>
               </div>

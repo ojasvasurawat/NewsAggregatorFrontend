@@ -19,6 +19,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collap
 import axios from "axios"
 import { useState , useEffect} from "react"
 import WorldButton from "./WorldButton"
+import { useNavigate } from "react-router-dom"
 
 
 const items = [
@@ -112,6 +113,7 @@ export function AppSidebar() {
 
     const [name, setName] = useState("");
     const [avatarUrl, setAvatarUrl] = useState("");
+    const navigate = useNavigate()
 
     useEffect(()=>{
         const fun = async ()=>{
@@ -126,6 +128,10 @@ export function AppSidebar() {
                 setAvatarUrl(response.data.user.avatarUrl);
             }else{
                 console.log("no response from get info")
+            }
+        }).catch((e)=>{
+            if(e){
+              navigate("/signin");
             }
         })
         }

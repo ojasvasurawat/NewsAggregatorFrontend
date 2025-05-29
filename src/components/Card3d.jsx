@@ -9,14 +9,14 @@ const ThreeDCardDemo = ({text1,text2}) => {
       >
         <CardItem
           translateZ="70"
-          className="text-xl font-bold text-neutral-600 dark:text-indigo-300"
+          className="text-xl font-bold text-indigo-300"
         >
           {text1}
         </CardItem>
         <CardItem
           as="p"
           translateZ="80"
-          className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+          className="text-sm max-w-sm mt-2 text-neutral-300"
         >
           {text2}
         </CardItem>
