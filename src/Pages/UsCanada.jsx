@@ -9,7 +9,7 @@ export default function UsCanada(){
         <SidebarProvider className="relative flex">
           <AppSidebar />
           <main className="flex-1">
-            <SidebarTrigger className="fixed bg-white"/>
+            <SidebarTrigger className="fixed bg-white z-10"/>
               <div className="bg-[#] ">
                 <NewsGrid route="uscanada" text="US & Canada"/>
               </div>

@@ -29,6 +29,10 @@ export default function Science() {
                 setArticles3(response.data.items3);
                 setLoading(true);
             }
+        }).catch((e)=>{
+            if(e){
+              navigate("/signin");
+            }
         })
         }
 
@@ -42,9 +46,9 @@ export default function Science() {
         <SidebarProvider className="relative flex">
           <AppSidebar />
           <main className="flex-1">
-            <SidebarTrigger className="fixed bg-white"/>
+            <SidebarTrigger className="fixed bg-white z-10"/>
             {loading ? (
-                            <div>
+                            <div className="">
                                 <Scrollcard items = {allArticles} />
                             </div>
                         ):(
@@ -59,7 +63,9 @@ export default function Science() {
                                     <div className="p-3 justify-items-center z-0 h-full "></div>
                                     
                                             <div className=" m-3 absolute inset-x-0 bottom-0 z-10 flex flex-col items-center p-4 text-white drop-shadow-[0_0_2px_blue] space-y-reverse space-y-2 backdrop-blur-xs">
-                                                <Skeleton className="h-6 w-full mb-2" />
+                                                <Skeleton className="h-4 w-full mb-2" />
+                                    <Skeleton className="h-4 w-full mb-2" />
+                                    <Skeleton className="h-4 w-full mb-2" />
                                                 {/* <div className="text-sm md:text-lg mb-2 ">{item.description}</div> */}
                                                 <Skeleton className="h-4 w-1/4 mb-10" />
                                             </div>

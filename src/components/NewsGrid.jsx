@@ -30,7 +30,11 @@ export default function NewsGrid({route, text}){
                     // setArticles((prevArticles) => [...prevArticles, ...response.data.items1]);
                     setLoading(true);
                 }
-            })
+            }).catch((e)=>{
+            if(e){
+              navigate("/signin");
+            }
+        })
             }
     
             items();
@@ -112,23 +116,39 @@ export default function NewsGrid({route, text}){
 
         <div>
             <div className="pr-8 m-8 hover:scale-105 duration-500 text-black md:grid md:grid-cols-3 rounded-xl border">
-                <Skeleton className="w-full p-3 m-4 h-50 rounded-xl" />
+                <Skeleton className="w-full p-3 m-4 h-60 md:h-50 rounded-xl" />
                 <div className="col-span-2">
                     <Skeleton className="h-6 w-full m-5" />
+                    <Skeleton className="h-6 w-full m-5 md:h-0" />
+                    <Skeleton className="h-6 w-full m-5 md:h-0" />
                     <Skeleton className="h-6 w-1/2 m-5" />
                     <Skeleton className="h-4 w-full m-5" />
                     <Skeleton className="h-4 w-full m-5" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
                     <Skeleton className="h-4 w-1/2 m-5" />
                     <Skeleton className="h-2 w-1/4 m-5" />
                 </div>
             </div>
             <div className="pr-8 m-8 hover:scale-105 duration-500 text-black md:grid md:grid-cols-3 rounded-xl border">
-                <Skeleton className="w-full p-3 m-4 h-50 rounded-xl" />
+                <Skeleton className="w-full p-3 m-4 h-60 md:h-50 rounded-xl" />
                 <div className="col-span-2">
                     <Skeleton className="h-6 w-full m-5" />
+                    <Skeleton className="h-6 w-full m-5 md:h-0" />
+                    <Skeleton className="h-6 w-full m-5 md:h-0" />
                     <Skeleton className="h-6 w-1/2 m-5" />
                     <Skeleton className="h-4 w-full m-5" />
                     <Skeleton className="h-4 w-full m-5" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
                     <Skeleton className="h-4 w-1/2 m-5" />
                     <Skeleton className="h-2 w-1/4 m-5" />
                 </div>
