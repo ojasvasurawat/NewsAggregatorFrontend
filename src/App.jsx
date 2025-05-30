@@ -9,7 +9,7 @@ import Err from './Pages/Err';
 import Landing from './Pages/Landing';
 import Blog from './Pages/Blog';
 import Pricing from './Pages/Pricing';
-import Sports from './Pages/sports';
+import Sports from './Pages/Sports';
 import Success from './Pages/Success';
 import CategoryPage from './Pages/Category';
 import Business from './Pages/Business';
