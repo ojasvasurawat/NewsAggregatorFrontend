@@ -6,6 +6,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/AppSidebar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useNavigate } from "react-router-dom";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function Education() {
     
@@ -18,7 +19,7 @@ export default function Education() {
 
       useEffect(()=>{
         const items = async ()=>{
-            await axios.get(`http://localhost:8000/education`,{
+            await axios.get(`${backendUrl}/education`,{
             headers:{
                 'Content-Type': 'application/json',
                 'authorization': localStorage.getItem('authorization')

@@ -5,6 +5,7 @@ import Scrollcard from "../components/ScrollCard";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/AppSidebar";
 import { Skeleton } from "@/components/ui/skeleton";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function Lifestyle() {
     
@@ -15,7 +16,7 @@ export default function Lifestyle() {
 
       useEffect(()=>{
         const items = async ()=>{
-            await axios.get(`http://localhost:8000/lifestyle`,{
+            await axios.get(`${backendUrl}/lifestyle`,{
             headers:{
                 'Content-Type': 'application/json',
                 'authorization': localStorage.getItem('authorization')

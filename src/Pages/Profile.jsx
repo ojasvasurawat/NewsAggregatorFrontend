@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function Profile() {
 
@@ -19,7 +20,7 @@ export default function Profile() {
 
 
     useEffect(()=>{
-        axios('http://localhost:8000/info',{
+        axios(`${backendUrl}/info`,{
             headers:{
                 'Content-Type': 'application/json',
                 'authorization': localStorage.getItem('authorization')
@@ -70,7 +71,7 @@ export default function Profile() {
         const base64 = await toBase64(file);
 
         try {
-            const response = await axios.post("http://localhost:8000/avatar", {
+            const response = await axios.post(`${backendUrl}/avatar`, {
                 avatarUrl: base64
             },{
                 headers:{
@@ -108,7 +109,7 @@ export default function Profile() {
         }
 
         try {
-            const response = await axios.post("http://localhost:8000/profile", {
+            const response = await axios.post(`${backendUrl}/profile`, {
                 name: changedName,
                 password: changedPassword
             },{
@@ -132,7 +133,7 @@ export default function Profile() {
     };
 
     const handleLogout = async()=>{
-        try{const response = await axios.post("http://localhost:8000/logout",{
+        try{const response = await axios.post(`${backendUrl}/logout`,{
                 
             },{
                 headers:{

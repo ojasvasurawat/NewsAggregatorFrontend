@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "react-scripts start",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
@@ -26,6 +27,7 @@
     "class-variance-authority": "^0.7.1",
     "cloudinary": "^2.6.1",
     "clsx": "^2.1.1",
+    "dotenv": "^16.5.0",
     "lucide-react": "^0.510.0",
     "motion": "^12.7.4",
     "react": "^19.0.0",

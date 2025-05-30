@@ -5,12 +5,14 @@ import { NavLink } from "react-router-dom";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { useEffect, useState } from "react";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 export default function Pricing() {
   const [isSignup, setIsSignup] = useState(false);
 
   useEffect(() => {
-    axios('http://localhost:8000/info', {
+    axios(`${backendUrl}/info`, {
       headers: {
         'Content-Type': 'application/json',
         'authorization': localStorage.getItem('authorization')
@@ -26,7 +28,7 @@ export default function Pricing() {
     const lookup_key = "standard_daily";
 
 
-    await axios.post("http://localhost:4242/billing/create-checkout-session", {
+    await axios.post(`${serverUrl}/billing/create-checkout-session`, {
       lookup_key,
     }).then(function (response) {
       // console.log(response);
@@ -40,7 +42,7 @@ export default function Pricing() {
     const lookup_key = "standard_monthly";
 
 
-    await axios.post("http://localhost:4242/billing/create-checkout-session", {
+    await axios.post(`${serverUrl}/billing/create-checkout-session`, {
       lookup_key,
     }).then(function (response) {
       // console.log(response);
@@ -56,17 +58,10 @@ export default function Pricing() {
         {isSignup ? (<SidebarTrigger className="fixed bg-white" />) : (<></>)}
 
 
-        <div className=" mt-0 md:mt-10 bg-[#] ">
 
-        <div className="min-h-screen w-full bg-gradient-to-tr from-blue-100 via-indigo-200 to-purple-200">
-          {/* <NavLink to="/home" className="text-2xl font-bold text-indigo-500 drop-shadow-[0_0_10px_rgba(99,102,241,0.7)] hover:text-indigo-400 transition">Curion</NavLink> */}
           <div className="min-h-screen flex items-center justify-center">
-            <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-5 md:gap-50 ">
-              {/* <PriceCard
-            text1={"Stay Informed With BLIp"} 
-            text2 ={"Unlock premium features and stay ahead of the curve. Subscribe now and get exclusive AI-powered insights with real-time updates."}
-            /> */}
-              <section className=" mt-30 md:mt-0 m-3 p-3 hover:scale-103 shadow-xl border-2 rounded-4xl max-w-md md:h-150 justify-items-center justify-self-center bg-gradient-to-tr from-blue-200 via-indigo-300 to-purple-200 duration-200">
+            <div className="my-10 grid sm:grid-cols-1 md:grid-cols-2 gap-10 md:gap-50 ">
+              <section className=" p-3 hover:scale-103 shadow-xl border-2 rounded-4xl max-w-md md:h-150 justify-items-center justify-self-center bg-gradient-to-tr from-blue-200 via-indigo-300 to-purple-200 duration-200">
                 <div class="product">
                   <div class="description">
                     <h3 className="text-white text-3xl font-bold flex justify-center mb-4 drop-shadow-[0_0_2px_purple]">Basic</h3>
@@ -120,7 +115,7 @@ export default function Pricing() {
 
 
 
-              <section className=" mb-10 md:mb-0 m-3 p-3 hover:scale-103 border-2 shadow-xl rounded-4xl max-w-md mx-auto md:h-150 justify-items-center justify-self-center bg-gradient-to-tr from-blue-200 via-indigo-300 to-purple-200 duration-200">
+              <section className=" p-3 hover:scale-103 border-2 shadow-xl rounded-4xl max-w-md mx-auto md:h-150 justify-items-center justify-self-center bg-gradient-to-tr from-blue-200 via-indigo-300 to-purple-200 duration-200">
                 <div class="product">
                   <div class="description">
                     <h3 className="text-white text-3xl font-bold flex justify-center mb-4 drop-shadow-[0_0_2px_purple]">Pro</h3>
@@ -177,8 +172,6 @@ export default function Pricing() {
 
             </div>
           </div>
-        </div>
-        </div>
       </main>
 
     </SidebarProvider >

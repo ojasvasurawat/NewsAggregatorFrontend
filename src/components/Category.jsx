@@ -1,4 +1,3 @@
-import axios from "axios";
 import CategoryCard from "./CategoryCard";
 import sports from "/src/public/sports.svg"
 import astrology from "/src/public/astrology.svg"

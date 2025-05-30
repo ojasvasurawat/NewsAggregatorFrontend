@@ -1,5 +1,7 @@
 import axios from "axios"
 import { useEffect } from "react";
+const serverUrl = import.meta.env.VITE_SERVER_URL;
+
 export default function Success() {
 
   useEffect(() => {
@@ -22,7 +24,7 @@ export default function Success() {
     }
 
 
-    await axios.post("http://localhost:4242/billing/create-portal-session", {
+    await axios.post(`${serverUrl}/billing/create-portal-session`, {
       session_id,
     }).then(function (response) {
       // console.log(response);

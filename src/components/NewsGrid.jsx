@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import TrendingCard from "./TrendingCard";
 import { Skeleton } from "./ui/skeleton";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function NewsGrid({route, text}){
 
@@ -17,7 +18,7 @@ export default function NewsGrid({route, text}){
     
           useEffect(()=>{
             const items = async ()=>{
-                await axios.get(`http://localhost:8000/${route}`,{
+                await axios.get(`${backendUrl}/${route}`,{
                 headers:{
                     'Content-Type': 'application/json',
                     'authorization': localStorage.getItem('authorization')

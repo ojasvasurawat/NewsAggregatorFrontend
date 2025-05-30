@@ -21,7 +21,6 @@ import { useState , useEffect} from "react"
 import WorldButton from "./WorldButton"
 import { useNavigate } from "react-router-dom"
 
-
 const items = [
     {
     title: "Home",
@@ -109,7 +108,11 @@ const world = [
   },
 ]
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 export function AppSidebar() {
+
+  console.log(backendUrl);
 
     const [name, setName] = useState("");
     const [avatarUrl, setAvatarUrl] = useState("");
@@ -118,7 +121,7 @@ export function AppSidebar() {
 
     useEffect(()=>{
         const fun = async ()=>{
-            await axios.get(`http://localhost:8000/info`,{
+            await axios.get(`${backendUrl}/info`,{
             headers:{
                 'Content-Type': 'application/json',
                 'authorization': localStorage.getItem('authorization')

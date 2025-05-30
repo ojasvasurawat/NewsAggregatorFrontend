@@ -5,12 +5,13 @@ import { AppSidebar } from "@/components/AppSidebar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import NavbarLanding from "@/components/Navbar2";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function CatgoryPage(){
   const [isSignup, setIsSignup] = useState(false);
 
   useEffect(()=>{
-        axios('http://localhost:8000/info',{
+        axios(`${backendUrl}/info`,{
             headers:{
                 'Content-Type': 'application/json',
                 'authorization': localStorage.getItem('authorization')

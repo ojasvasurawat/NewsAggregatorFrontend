@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify'
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function SignInCard() {
     
@@ -19,7 +20,7 @@ export default function SignInCard() {
         }
 
         // try {
-            const response = await axios.post("http://localhost:8000/signin", {
+            const response = await axios.post(`${backendUrl}/signin`, {
                 email: signinEmail,
                 password: signinPassword
             });

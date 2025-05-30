@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import SignInCard from "../components/SignInCard";
 import SignUpCard from "../components/SignupCard";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const AuthPage = () => {
     const [activeTab, setActiveTab] = useState("signup");
@@ -18,7 +19,7 @@ const AuthPage = () => {
     
     const handleSignup = async () => {
         try {
-            const response = await axios.post("http://localhost:8000/signup", {
+            const response = await axios.post(`${backendUrl}/signup`, {
                 name,
                 email: signupEmail,
                 password: signupPassword

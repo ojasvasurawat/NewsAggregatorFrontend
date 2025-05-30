@@ -1,13 +1,14 @@
 import axios from "axios";
 import HomeCard from "./HomeCard";
 import { useEffect, useState } from "react";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function HomeGrid(){
     const [topics, setTopics] = useState([]);
 
     useEffect(()=>{
         const fun = async ()=>{
-            await axios.get(`http://localhost:8000/info`,{
+            await axios.get(`${backendUrl}/info`,{
             headers:{
                 'Content-Type': 'application/json',
                 'authorization': localStorage.getItem('authorization')

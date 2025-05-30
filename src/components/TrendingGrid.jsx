@@ -2,6 +2,7 @@ import TrendingCard from "./TrendingCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Skeleton } from "./ui/skeleton";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function TrendingGrid(){
 
@@ -12,7 +13,7 @@ export default function TrendingGrid(){
     
           useEffect(()=>{
             const items = async ()=>{
-                await axios.get(`http://localhost:8000/trending`,{
+                await axios.get(`${backendUrl}/trending`,{
                 headers:{
                     'Content-Type': 'application/json',
                     'authorization': localStorage.getItem('authorization')

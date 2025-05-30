@@ -14,6 +14,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import TopicsButton from "./TopicsButton";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 
 export default function SignUpCard({ setActiveTab }) {
@@ -38,7 +39,7 @@ export default function SignUpCard({ setActiveTab }) {
         }
 
         try {
-            const response = await axios.post("http://localhost:8000/signup", {
+            const response = await axios.post(`${backendUrl}/signup`, {
                 name: name,
                 email: signupEmail,
                 password: signupPassword
@@ -70,7 +71,7 @@ export default function SignUpCard({ setActiveTab }) {
 
     async function transferData(){
         try {
-            await axios.post("http://localhost:8000/topics", {
+            await axios.post(`${backendUrl}/topics`, {
                 email: signupEmail,
                 topics: topicsFromChild
             });
