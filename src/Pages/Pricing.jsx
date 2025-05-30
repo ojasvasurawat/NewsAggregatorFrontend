@@ -36,17 +36,17 @@ export default function Pricing() {
 
         
         <div className="min-h-screen w-full bg-gradient-to-tr from-blue-100 via-indigo-200 to-purple-200">
-        <NavLink to="/Signup" className="text-2xl font-bold text-indigo-500 drop-shadow-[0_0_10px_rgba(99,102,241,0.7)] hover:text-indigo-400 transition">Curion</NavLink>
+        <NavLink to="/home" className="text-2xl font-bold text-indigo-500 drop-shadow-[0_0_10px_rgba(99,102,241,0.7)] hover:text-indigo-400 transition">Curion</NavLink>
         <div className="min-h-screen flex items-center justify-center">
         <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-50 ">
             {/* <PriceCard
             text1={"Stay Informed With BLIp"} 
             text2 ={"Unlock premium features and stay ahead of the curve. Subscribe now and get exclusive AI-powered insights with real-time updates."}
             /> */}
-            <section  className=" m-3 p-3 hover:scale-101 shadow-xl border-2 rounded-4xl max-w-md md:h-150 justify-items-center justify-self-center bg-gradient-to-tr from-blue-100 via-indigo-300 to-purple-200">
+            <section  className=" m-3 p-3 hover:scale-103 shadow-xl border-2 rounded-4xl max-w-md md:h-150 justify-items-center justify-self-center bg-gradient-to-tr from-blue-200 via-indigo-300 to-purple-200 duration-200">
               <div class="product">
                 <div class="description">
-                  <h3 className="text-white text-3xl font-bold flex justify-center mb-4">Basic</h3>
+                  <h3 className="text-white text-3xl font-bold flex justify-center mb-4 drop-shadow-[0_0_2px_purple]">Basic</h3>
                   <h2 className="mb-5 text-white">Quick access to top news with limited features.</h2>
                   <h5 className="flex justify-center mb-7">
                     <span className="font-bold text-4xl p-2">$5.00</span>
@@ -97,10 +97,10 @@ export default function Pricing() {
 
 
 
-            <section  className=" m-3 p-3 hover:scale-101 border-2 shadow-xl rounded-4xl max-w-md mx-auto md:h-150 justify-items-center justify-self-center bg-gradient-to-tr from-blue-100 via-indigo-300 to-purple-200">
+            <section  className=" m-3 p-3 hover:scale-103 border-2 shadow-xl rounded-4xl max-w-md mx-auto md:h-150 justify-items-center justify-self-center bg-gradient-to-tr from-blue-200 via-indigo-300 to-purple-200 duration-200">
               <div class="product">
                 <div class="description">
-                  <h3 className="text-white text-3xl font-bold flex justify-center mb-4">Pro</h3>
+                  <h3 className="text-white text-3xl font-bold flex justify-center mb-4 drop-shadow-[0_0_2px_purple]">Pro</h3>
                   <h2 className="mb-5 text-white">Full access with unlimited features and personalization.</h2>
                   <h5 className="flex justify-center mb-7">
                     <span className="font-bold text-4xl p-2">$20.00</span>
