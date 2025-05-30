@@ -18,6 +18,6 @@ export default function TopicsButton({text, sendCountToParent, sendTopicsToParen
         }
     }
     return(
-        <button className={`border rounded-md transition duration-200  ${clickStatus ?  "bg-blue-500 text-white" : "hover:bg-blue-500 hover:text-white" } `}  onClick={handleChoice}>{text}</button>
+        <button className={`text-xs h-6 w-23 md:h-7 md:w-35 md:text-base border rounded-md transition duration-200  ${clickStatus ?  "bg-blue-500 text-white" : "hover:bg-blue-500 hover:text-white" } `}  onClick={handleChoice}>{text}</button>
     )
 }

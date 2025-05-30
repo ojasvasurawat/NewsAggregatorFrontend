@@ -176,7 +176,7 @@ export default function SignUpCard({ setActiveTab }) {
                     <TopicsButton text="Astrology" sendCountToParent={handleCountFromChild} sendTopicsToParent={handleTopicsFromChild} /> 
                 </div>
                 <AlertDialogFooter >
-                <AlertDialogAction className={`w-1/2 bg-blue-300 hover:bg-blue-600 ${countFromChild>=3 ? "bg-blue-600 hover:bg-blue-900" : ""}`} onClick={countFromChild>=3 && transferData }>Follow 3 to continue</AlertDialogAction>
+                <AlertDialogAction className={`text-xs md:text-base w-1/2 bg-blue-300 hover:bg-blue-600 ${countFromChild>=3 ? "bg-blue-600 hover:bg-blue-900" : ""}`} onClick={countFromChild>=3 && transferData }>Follow 3 to continue</AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
             </AlertDialog>
