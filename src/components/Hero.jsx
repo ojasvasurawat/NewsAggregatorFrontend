@@ -9,12 +9,14 @@ export default function Hero() {
                 <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight">
                     <button className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 drop-shadow-[0_0_12px_rgba(106,72,243,0.9)] hover:translate-y-[-2px] transition">Curion:</button> Smart News Delivery
                 </h1>
+
                 <h2 className="text-gray-600 mt-4 text-lg">AI-curated news from the sources you trust</h2>
 
                 <div className="flex flex-wrap justify-center lg:justify-start gap-4 mt-8">
                     <button onClick={() => navigate("/signin")} className="focus:outline-none bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full transition shadow-lg hover:shadow-blue-200 hover:translate-y-[-2px]">Get Started</button>
                     <button onClick={() => navigate("/signin")} className="border border-blue-500 text-blue-500 hover:bg-blue-50 px-6 py-3 rounded-full transition">Explore Now</button>
                 </div>
+               
             </div>
             <div className="m-5 mt-6 md:mt-0">
                 <div className="relative">

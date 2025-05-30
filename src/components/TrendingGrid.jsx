@@ -24,7 +24,11 @@ export default function TrendingGrid(){
                     // setArticles((prevArticles) => [...prevArticles, ...response.data.items1]);
                     setLoading(true);
                 }
-            })
+            }).catch((e)=>{
+            if(e){
+              navigate("/signin");
+            }
+        })
             }
     
             items();
@@ -34,7 +38,7 @@ export default function TrendingGrid(){
 
 
     return(<>
-{!loading ? (
+{loading ? (
         <>
         <h1 className="text-center font-bold text-4xl font-sans text-indigo-500 pt-20 justify-self-center">Trending</h1>
     <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 m-10 gap-5">
@@ -63,23 +67,39 @@ export default function TrendingGrid(){
 
         <div>
             <div className="pr-8 m-8 hover:scale-105 duration-500 text-black md:grid md:grid-cols-3 rounded-xl border">
-                <Skeleton className="w-full p-3 m-4 md:h-50 rounded-xl" />
+                <Skeleton className="w-full p-3 m-4 h-60 md:h-50 rounded-xl" />
                 <div className="col-span-2">
                     <Skeleton className="h-6 w-full m-5" />
+                    <Skeleton className="h-6 w-full m-5 md:h-0" />
+                    <Skeleton className="h-6 w-full m-5 md:h-0" />
                     <Skeleton className="h-6 w-1/2 m-5" />
                     <Skeleton className="h-4 w-full m-5" />
                     <Skeleton className="h-4 w-full m-5" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
                     <Skeleton className="h-4 w-1/2 m-5" />
                     <Skeleton className="h-2 w-1/4 m-5" />
                 </div>
             </div>
             <div className="pr-8 m-8 hover:scale-105 duration-500 text-black md:grid md:grid-cols-3 rounded-xl border">
-                <Skeleton className="w-full p-3 m-4 md:h-50 rounded-xl" />
+                <Skeleton className="w-full p-3 m-4 h-60 md:h-50 rounded-xl" />
                 <div className="col-span-2">
                     <Skeleton className="h-6 w-full m-5" />
+                    <Skeleton className="h-6 w-full m-5 md:h-0" />
+                    <Skeleton className="h-6 w-full m-5 md:h-0" />
                     <Skeleton className="h-6 w-1/2 m-5" />
                     <Skeleton className="h-4 w-full m-5" />
                     <Skeleton className="h-4 w-full m-5" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
+                    <Skeleton className="h-4 w-full m-5 md:h-0" />
                     <Skeleton className="h-4 w-1/2 m-5" />
                     <Skeleton className="h-2 w-1/4 m-5" />
                 </div>

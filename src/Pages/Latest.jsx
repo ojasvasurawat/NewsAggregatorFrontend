@@ -9,7 +9,7 @@ export default function Latest(){
         <SidebarProvider className="relative flex">
           <AppSidebar />
           <main className="flex-1">
-            <SidebarTrigger className="fixed bg-white"/>
+            <SidebarTrigger className="fixed bg-white z-10"/>
               <div className="bg-[#] ">
                 <NewsGrid route="latest" text="Latest"/>
               </div>

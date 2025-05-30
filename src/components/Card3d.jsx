@@ -35,6 +35,7 @@ export default function ThreeDCardDemo({ text1, text2, image }) {
         className="absolute inset-4 rounded-xl bg-gradient-to-br from-blue-900 via-indigo-800 to-purple-900 opacity-90 p-6 shadow-inner"
         style={{ transform: "translateZ(20px)", transformStyle: "preserve-3d" }}
       >
+
         <div className="flex h-full flex-col items-center justify-between">
           <div
             className="mt-2 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-indigo-400 to-purple-300"
@@ -56,6 +57,7 @@ export default function ThreeDCardDemo({ text1, text2, image }) {
           <div
             className="text-center"
             style={{ transform: "translateZ(50px)" }}
+
           >
             <h3
               className="text-lg font-bold text-gra-800"
