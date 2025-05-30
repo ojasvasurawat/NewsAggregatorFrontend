@@ -1,5 +1,10 @@
 import Card2 from "./Card2";
 import ThreeDCardDemo from "./Card3d";
+import cc from "/src/public/c&c.svg";
+import ra from "/src/public/r&a.svg";
+import two_persons from "/src/public/two_persons.svg";
+import standingGirl from "/src/public/standingGirl.svg";
+
 
 export default function Feature() {
     return <>
@@ -20,14 +25,14 @@ export default function Feature() {
                 <ThreeDCardDemo
                     text1={"Trusted Sources"}
                     text2={"News from reliable and well-known publishers like BBC, Reuters, and more—so you always get the full picture."}
-                    image={"src/assets/c&c.svg"}
+                    image={cc}
                 />
             </div>
             <div data-aos="fade-up" data-aos-delay="300">
                 <ThreeDCardDemo
                     text1={"Personalized Feed"}
                     text2={"Select your interests, and Curion tailors your news feed to match what matters most to you."}
-                    image={"src/assets/r&a.svg"}
+                    image={ra}
                 />
             </div>
             <div data-aos="fade-up" data-aos-delay="300">
@@ -43,7 +48,7 @@ export default function Feature() {
                 <Card2
                     text1={"Stay Ahead with AI-Powered News"}
                     text2={"Stop scrolling. Start reading smarter. Curion's AI scans trusted platforms like Twitter, YouTube, Medium, and NYT to deliver personalized, real-time news summaries—so you never miss what matters."}
-                    image={"src/assets/two_persons.svg"}
+                    image={two_persons}
                     text3={"Explore More"}
                 />
             </div>
@@ -51,7 +56,7 @@ export default function Feature() {
                 <Card2
                     text1={"Filter & Personalize Your News Like a Pro"}
                     text2={"Cut through the noise with precision. Curion lets you filter by topics, sources, and trends—be it Reddit, Bloomberg, or BBC. Bookmark, summarize, and stay informed on your own terms."}
-                    image={"src/assets/standingGirl.svg"}
+                    image={standingGirl}
                     text3={"Learn More"}
                 />
             </div>

@@ -1,5 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import FooterText from "./FooterText";
+import insta from "/src/public/insta.svg"
+import ball from "/src/public/ball.svg"
+import twiter from "/src/public/twiter.svg"
+import yt from "/src/public/yt.svg"
 
 export default function Footer() {
     const navigate = useNavigate()
@@ -17,10 +21,10 @@ export default function Footer() {
                 <h2 className="text-gray-400 mt-2">Copyright © 2025 Curion.</h2>
                 <h3 className="text-gray-500">All rights reserved</h3>
                 <div className="flex gap-4 mt-3">
-                    <img src="src/assets/insta.svg" alt="" className="h-5 w-5 opacity-70 hover:opacity-100 cursor-pointer transition" />
-                    <img src="src/assets/ball.svg" alt="" className="h-5 w-5 opacity-70 hover:opacity-100 cursor-pointer transition" />
-                    <img src="src/assets/twiter.svg" alt="" className="h-5 w-5 opacity-70 hover:opacity-100 cursor-pointer transition" />
-                    <img src="src/assets/yt.svg" alt="" className="h-5 w-5 opacity-70 hover:opacity-100 cursor-pointer transition" />
+                    <img src={insta} alt="" className="h-5 w-5 opacity-70 hover:opacity-100 cursor-pointer transition" />
+                    <img src={ball} alt="" className="h-5 w-5 opacity-70 hover:opacity-100 cursor-pointer transition" />
+                    <img src={twiter} alt="" className="h-5 w-5 opacity-70 hover:opacity-100 cursor-pointer transition" />
+                    <img src={yt} alt="" className="h-5 w-5 opacity-70 hover:opacity-100 cursor-pointer transition" />
                 </div>
             </div>
             <FooterText

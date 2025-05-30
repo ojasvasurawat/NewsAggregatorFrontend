@@ -5,7 +5,7 @@ import ThreeDCardDemo from "./Card3d";
 export default function NewsPreview() {
     const navigate = useNavigate();
     const [activeCategory, setActiveCategory] = useState("For You");
-    
+
     // Sample news data - in real app would come from API
     const newsItems = [
         {
@@ -41,9 +41,9 @@ export default function NewsPreview() {
             image: "/api/placeholder/300/200"
         }
     ];
-    
+
     const categories = ["For You", "Technology", "Business", "Science", "Entertainment", "World"];
-    
+
     return (
         <section className="py-20 relative bg-[#0c0c16]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,34 +55,33 @@ export default function NewsPreview() {
                         Our AI analyzes thousands of articles daily to deliver personalized news that's relevant to your interests
                     </p>
                 </div>
-                
+
                 {/* Category Selector */}
                 <div className="flex justify-center mb-10 overflow-x-auto pb-2 space-x-2">
                     {categories.map(category => (
                         <button
                             key={category}
-                            className={`px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 ${
-                                activeCategory === category
+                            className={`px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 ${activeCategory === category
                                     ? "bg-indigo-600 text-white"
                                     : "bg-indigo-900/30 text-gray-300 hover:bg-indigo-900/50"
-                            }`}
+                                }`}
                             onClick={() => setActiveCategory(category)}
                         >
                             {category}
                         </button>
                     ))}
                 </div>
-                
+
                 {/* News Preview Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {newsItems.map(item => (
-                        <div 
+                        <div
                             key={item.id}
                             className="bg-gradient-to-br from-indigo-950 via-[#0f0f1a] to-indigo-950 rounded-xl overflow-hidden border border-indigo-900/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-indigo-700/50 hover:translate-y-[-4px]"
                         >
-                            <img 
-                                src={item.image} 
-                                alt={item.title} 
+                            <img
+                                src={item.image}
+                                alt={item.title}
                                 className="w-full h-40 object-cover"
                             />
                             <div className="p-5 space-y-3">
@@ -104,18 +103,18 @@ export default function NewsPreview() {
                         </div>
                     ))}
                 </div>
-                
+
                 {/* AI Personalization Feature */}
                 <div className="mt-16 px-4 py-10 rounded-2xl bg-gradient-to-r from-indigo-900/20 to-purple-900/20 border border-indigo-800/30">
                     <div className="flex flex-col lg:flex-row items-center gap-8">
                         {/* 3D Card for Feature Highlight */}
                         <div className="w-full lg:w-1/3">
-                            <ThreeDCardDemo 
-                                text1="AI-Powered Personalization" 
+                            <ThreeDCardDemo
+                                text1="AI-Powered Personalization"
                                 text2="Our algorithms learn your preferences to deliver increasingly relevant news over time, saving you hours of scrolling"
                             />
                         </div>
-                        
+
                         <div className="w-full lg:w-2/3 space-y-6">
                             <h3 className="text-2xl font-bold text-white">Your Personalized News Experience</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -132,7 +131,7 @@ export default function NewsPreview() {
                                         <p className="text-gray-400 text-sm mt-1">Get news that matters to you without wasting time on irrelevant content</p>
                                     </div>
                                 </div>
-                                
+
                                 <div className="flex items-start space-x-3">
                                     <div className="flex-shrink-0 mt-1">
                                         <div className="h-6 w-6 rounded-full bg-indigo-600 flex items-center justify-center">
@@ -146,7 +145,7 @@ export default function NewsPreview() {
                                         <p className="text-gray-400 text-sm mt-1">See multiple viewpoints on important stories from trusted sources</p>
                                     </div>
                                 </div>
-                                
+
                                 <div className="flex items-start space-x-3">
                                     <div className="flex-shrink-0 mt-1">
                                         <div className="h-6 w-6 rounded-full bg-indigo-600 flex items-center justify-center">
@@ -160,7 +159,7 @@ export default function NewsPreview() {
                                         <p className="text-gray-400 text-sm mt-1">Our AI learns and improves with your feedback and reading habits</p>
                                     </div>
                                 </div>
-                                
+
                                 <div className="flex items-start space-x-3">
                                     <div className="flex-shrink-0 mt-1">
                                         <div className="h-6 w-6 rounded-full bg-indigo-600 flex items-center justify-center">
@@ -175,9 +174,9 @@ export default function NewsPreview() {
                                     </div>
                                 </div>
                             </div>
-                            
-                            <button 
-                                onClick={() => navigate("/signup")} 
+
+                            <button
+                                onClick={() => navigate("/signup")}
                                 className="mt-6 px-6 py-3 bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 text-white rounded-lg shadow-lg shadow-indigo-600/20 transition-all duration-300"
                             >
                                 Start Your Free Trial

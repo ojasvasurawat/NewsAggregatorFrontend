@@ -1,5 +1,17 @@
 import axios from "axios";
 import CategoryCard from "./CategoryCard";
+import sports from "/src/public/sports.svg"
+import astrology from "/src/public/astrology.svg"
+import business from "/src/public/business.svg"
+import Entertainment from "/src/public/Entertainment.svg"
+import science from "/src/public/science.svg"
+import technology from "/src/public/technology.svg"
+import politics from "/src/public/politics.svg"
+import health from "/src/public/health.svg"
+import lifestyle from "/src/public/lifestyle.svg"
+import environment from "/src/public/environment.svg"
+import education from "/src/public/education.svg"
+import automobiles from "/src/public/automobiles.svg"
 
 export default function Category() {
     
@@ -9,39 +21,39 @@ export default function Category() {
         <div className="p-9  grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             <CategoryCard
                 text={"Sports"}
-                image={"src/assets/sports.svg"} />
+                image={sports} />
             <CategoryCard
                 text={"Business"}
-                image={"src/assets/business.svg"} />
+                image={business} />
             <CategoryCard
                 text={"Entertainment"}
-                image={"src/assets/Entertainment.svg"} />
+                image={Entertainment} />
             <CategoryCard
                 text={"Science"}
-                image={"src/assets/science.svg"} />
+                image={science} />
             <CategoryCard
                 text={"Technology"}
-                image={"src/assets/technology.svg"} />
+                image={technology} />
             <CategoryCard
                 text={"Politics"}
-                image={"src/assets/politics.svg"} />
+                image={politics} />
             <CategoryCard
                 text={"Health"}
-                image={"src/assets/health.svg"} />
+                image={health} />
             <CategoryCard
                 text={"Lifestyle"}
-                image={"src/assets/lifestyle.svg"} />
+                image={lifestyle} />
             <CategoryCard
                 text={"Environment"}
-                image={"src/assets/environment.svg"} />
+                image={environment} />
             <CategoryCard
                 text={"Education"}
-                image={"src/assets/education.svg"} />
+                image={education} />
             <CategoryCard
                 text={"Automobiles"}
-                image={"src/assets/automobiles.svg"} />
+                image={automobiles} />
             <CategoryCard
                 text={"Astrology"}
-                image={"src/assets/astrology.svg"} />
+                image={astrology} />
         </div></>)
 }

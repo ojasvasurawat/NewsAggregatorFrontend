@@ -39,48 +39,6 @@ export default function NewsGrid({route, text}){
     
             items();
         },[]);
-
-
-
-        // useEffect(() => {
-        //   const handleScroll = () => {
-        //     const container = containerRef.current;
-        //     if (!container) return;
-
-        //     const containerCenter = container.offsetLeft + container.clientWidth / 2;
-        //     const children = Array.from(container.children).filter((child) => child.dataset.card === "true");
-
-        //     let closest = 0;
-        //     let minDist = Infinity;
-
-        //     children.forEach((child, index) => {
-        //       const rect = child.getBoundingClientRect();
-        //       const childCenter = rect.left + rect.width / 2;
-        //       const distance = Math.abs(containerCenter - childCenter);
-
-        //       if (distance < minDist) {
-        //         minDist = distance;
-        //         closest = index;
-        //       }
-        //     });
-
-        //     setCurrentIndex(closest);
-        //   };
-
-        //   const handleWheel = (e)=>{
-        //     if(e.deltaY !== 0 ){
-        //         e.preventDefault();
-        //         container.scrollLeft += e.deltaY
-        //     }  
-        //   }
-
-        //   const container = containerRef.current;
-        //   container?.addEventListener("scroll", handleScroll);
-        //   container?.addEventListener("wheel", handleWheel, {passive: false});
-        //   handleScroll(); 
-
-        //   return () => container?.removeEventListener("scroll", handleScroll);
-        // }, []);
     
     
   const allArticles = [...articles,...articles2];

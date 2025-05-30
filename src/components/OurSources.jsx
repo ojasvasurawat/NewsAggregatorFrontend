@@ -1,3 +1,8 @@
+import x from "/src/public/x.svg"
+import youtube from "/src/public/youtube.svg"
+import bbc from "/src/public/bbc.svg"
+import NYT from "/src/public/NYT.svg"
+
 export default function OurSources() {
     return (
         <>
@@ -9,16 +14,16 @@ export default function OurSources() {
                 </div>
                 <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 px-4">
                     <div className="grayscale hover:grayscale-0 transition duration-300 transform hover:scale-110">
-                        <img className="h-10 md:h-12" src="src/assets/x.svg" alt="Twitter" />
+                        <img className="h-10 md:h-12" src={x} alt="Twitter" />
                     </div>
                     <div className="grayscale hover:grayscale-0 transition duration-300 transform hover:scale-110">
-                        <img className="h-10 md:h-12" src="src/assets/youtube.svg" alt="YouTube" />
+                        <img className="h-10 md:h-12" src={youtube} alt="YouTube" />
                     </div>
                     <div className="grayscale hover:grayscale-0 transition duration-300 transform hover:scale-110">
-                        <img className="h-10 md:h-12" src="src/assets/bbc.svg" alt="BBC" />
+                        <img className="h-10 md:h-12" src={bbc} alt="BBC" />
                     </div>
                     <div className="grayscale hover:grayscale-0 transition duration-300 transform hover:scale-110">
-                        <img className="h-10 md:h-12" src="src/assets/NYT.svg" alt="New York Times" />
+                        <img className="h-10 md:h-12" src={NYT} alt="New York Times" />
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import  Computer  from "/src/public/img.svg"
 
 export default function Hero() {
     const navigate = useNavigate()
@@ -16,12 +17,12 @@ export default function Hero() {
                     <button onClick={() => navigate("/signin")} className="focus:outline-none bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full transition shadow-lg hover:shadow-blue-200 hover:translate-y-[-2px]">Get Started</button>
                     <button onClick={() => navigate("/signin")} className="border border-blue-500 text-blue-500 hover:bg-blue-50 px-6 py-3 rounded-full transition">Explore Now</button>
                 </div>
-               
+
             </div>
             <div className="m-5 mt-6 md:mt-0">
                 <div className="relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-purple-300 rounded-full blur-3xl opacity-20"></div>
-                    <img className="relative hover:scale-105 transition-transform duration-300 max-w-full h-auto drop-shadow-xl" src="src/assets/img.svg" alt="computer" />
+                    <img className="relative hover:scale-105 transition-transform duration-300 max-w-full h-auto drop-shadow-xl" src={Computer} alt="computer" />
                 </div>
             </div>
         </section>
