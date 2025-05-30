@@ -113,7 +113,8 @@ export function AppSidebar() {
 
     const [name, setName] = useState("");
     const [avatarUrl, setAvatarUrl] = useState("");
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [click, setClick] = useState(false);
 
     useEffect(()=>{
         const fun = async ()=>{
@@ -155,7 +156,7 @@ export function AppSidebar() {
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton asChild >
                     <a href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>

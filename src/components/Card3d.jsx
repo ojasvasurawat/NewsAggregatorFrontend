@@ -1,8 +1,10 @@
 // export default ThreeDCardDemo;
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ThreeDCardDemo({ text1, text2, image }) {
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
+    const navigate = useNavigate()
 
   const handleMouseMove = (e) => {
     const card = e.currentTarget;
@@ -76,7 +78,7 @@ export default function ThreeDCardDemo({ text1, text2, image }) {
             className="mb-2 mt-4"
             style={{ transform: "translateZ(70px)" }}
           >
-            <button className="rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-4 py-1 text-xs font-medium text-white shadow-md transition hover:shadow-lg">
+            <button onClick={()=>{navigate('/signin')}} className="rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-4 py-1 text-xs font-medium text-white shadow-md transition hover:shadow-lg">
               Learn more
             </button>
           </div>

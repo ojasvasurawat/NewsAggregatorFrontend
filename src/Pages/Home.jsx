@@ -13,7 +13,7 @@ export default function Home(){
     return(<>
         <SidebarProvider className="relative flex">
           <AppSidebar />
-          <main className="flex-1">
+          <main className="flex-1 bg-gradient-to-tr from-blue-100 via-indigo-200 to-purple-200">
             <SidebarTrigger className="fixed bg-white z-10"/>
               <div className="bg-[#] ">
                 <HomeGrid/>

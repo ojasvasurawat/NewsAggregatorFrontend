@@ -33,7 +33,7 @@ export default function HomeCard({text}){
       
         {!loading ? (
         <>
-        <h1 className="m-5 font-bold text-3xl font-sans text-indigo-500 pt-7"><a href={`/${route}`} className="underline hover:text-blue-400">{text}</a></h1>
+        <h1 className="m-5 font-bold text-3xl font-sans text-indigo-500 pt-7"><a href={`/${route}`} className="underline hover:text-indigo-600">{text}</a></h1>
         <div className="m-5">
             <div className="grid md:grid-cols-2 mb-10">
                 <div className="mr-5 "><img src={articles[7].img} className="w-full md:h-100 object-fill mb-5 md:mb-0 "/></div>

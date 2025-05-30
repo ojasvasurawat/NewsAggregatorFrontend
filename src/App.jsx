@@ -37,6 +37,7 @@ import UsCanada from './Pages/UsCanada';
 import TopicSelection from './Pages/TopicSelection';
 import { ToastContainer, toast } from 'react-toastify';
 import TopStories from './Pages/TopStories';
+import Cancle from './Pages/Cancle';
 // import { SVGMaskEffectDemo } from './Pages/HoverTest';
 function App() {
   useEffect(() => {
@@ -59,7 +60,8 @@ function App() {
       <Route path='*' element={<Err/>}></Route>
       <Route path='/pricing' element={<Pricing/>}></Route>
       <Route path='/blog' element={<Blog/>}></Route>
-      <Route path='/success' element={<Success/>}></Route>
+      <Route path='/home/success' element={<Success/>}></Route>
+      <Route path='/home/cancle' element={<Cancle/>}></Route>
       <Route path='/category' element={<CategoryPage/>}></Route>
       <Route path='/sports' element={<Sports/>}></Route>
       <Route path='/business' element={<Business/>}></Route>

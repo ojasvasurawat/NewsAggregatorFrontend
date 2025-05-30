@@ -5,11 +5,13 @@ import Scrollcard from "../components/ScrollCard";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/AppSidebar";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useNavigate } from "react-router-dom";
 
 export default function Sports() {
 
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -39,7 +41,7 @@ export default function Sports() {
         <>
             <SidebarProvider className="relative flex">
                 <AppSidebar />
-                <main className="flex-1">
+                <main className="flex-1 bg-gradient-to-tr from-blue-100 via-indigo-200 to-purple-200">
                     <SidebarTrigger className="fixed bg-white z-10" />
                     {loading ? (
                         <div className="">

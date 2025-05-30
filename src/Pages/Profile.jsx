@@ -158,7 +158,7 @@ export default function Profile() {
         <>
         <SidebarProvider className="relative flex">
           <AppSidebar />
-          <main className="flex-1">
+          <main className="flex-1 bg-gradient-to-tr from-blue-100 via-indigo-200 to-purple-200">
             <SidebarTrigger className="fixed bg-white z-10"/>
             <div>
                 
@@ -172,14 +172,14 @@ export default function Profile() {
                                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                                     Username
                                 </label>
-                                <div className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">{currentName}</div>
+                                <div className="w-full px-4 py-3 border border-white rounded-lg focus:ring-blue-500 focus:border-blue-500">{currentName}</div>
                             </div>
 
                             <div>
                                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                                     Email
                                 </label>
-                                <div className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">{currentEmail}</div>
+                                <div className="w-full px-4 py-3 border border-white rounded-lg focus:ring-blue-500 focus:border-blue-500">{currentEmail}</div>
                             </div>
                         </div>
                         
@@ -205,7 +205,7 @@ export default function Profile() {
                                     type="name"
                                     value={changedName}
                                     onChange={(e) => setChangedName(e.target.value)}
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full px-4 py-3 border border-white rounded-lg focus:ring-blue-500 focus:border-blue-500"
                                     placeholder="Enter your new username"
                                 />
                             </div>
@@ -221,7 +221,7 @@ export default function Profile() {
                                     type="password"
                                     value={changedPassword}
                                     onChange={(e) => setChangedPassword(e.target.value)}
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full px-4 py-3 border border-white rounded-lg focus:ring-blue-500 focus:border-blue-500"
                                     placeholder="Enter your new password"
                                 />
                             </div>
