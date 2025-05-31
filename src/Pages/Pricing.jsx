@@ -10,6 +10,8 @@ const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 export default function Pricing() {
   const [isSignup, setIsSignup] = useState(false);
+  const [buttonLoading, setButtonLoading] = useState(false);
+  const [buttonLoadingM, setButtonLoadingM] = useState(false);
 
   useEffect(() => {
     axios(`${backendUrl}/info`, {
@@ -25,6 +27,7 @@ export default function Pricing() {
   }, [])
 
   const handleDaily = async () => {
+    setButtonLoading(true);
     const lookup_key = "standard_daily";
 
 
@@ -39,6 +42,7 @@ export default function Pricing() {
 
 
   const handleMonthly = async () => {
+    setButtonLoadingM(true);
     const lookup_key = "standard_monthly";
 
 
@@ -110,7 +114,7 @@ export default function Pricing() {
                     </ul>
                   </div>
                 </div>
-                <button id="checkout-and-portal-button-daily" type="submit" onClick={handleDaily} className=" m-1 mt-12 w-sm p-1 border rounded-md font-semibold hover:bg-blue-500 hover:scale-101 hover:text-white active:bg-blue-500 active:scale-101 active:text-white">Get Basic</button>
+                <button id="checkout-and-portal-button-daily" type="submit" onClick={handleDaily} className={` m-1 mt-12 w-sm p-1 border rounded-md font-semibold ${buttonLoading ? ("") : ("hover:bg-blue-500 hover:text-white hover:scale-101 active:bg-blue-500 active:scale-101 active:text-white")}`}>{buttonLoading ? ("Wait") : ("Get Basic")}</button>
               </section>
 
 
@@ -166,7 +170,7 @@ export default function Pricing() {
                     </ul>
                   </div>
                 </div>
-                <button id="checkout-and-portal-button-monthly" type="submit" onClick={handleMonthly} className=" m-1 w-sm mt-12 p-1 border rounded-md font-semibold hover:bg-blue-500 hover:scale-101 hover:text-white active:bg-blue-500 active:scale-101 active:text-white">Get Pro</button>
+                <button id="checkout-and-portal-button-monthly" type="submit" onClick={handleMonthly} className={` m-1 w-sm mt-12 p-1 border rounded-md font-semibold ${buttonLoadingM ? ("") : ("hover:bg-blue-500 hover:scale-101 hover:text-white active:bg-blue-500 active:scale-101 active:text-white")}`}>{buttonLoadingM ? ("Wait") : ("Get Pro")}</button>
               </section>
 
 
