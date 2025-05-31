@@ -10,12 +10,14 @@ export default function SignInCard() {
     const [signinEmail, setSigninEmail] = useState("");
     const [signinPassword, setSigninPassword] = useState("");
     const [rememberMe, setRememberMe] = useState(false);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [buttonLoading, setButtonLoading] = useState(false);
 
     const handleSignin = async () => {
-
+        setButtonLoading(true);
         if (signinPassword === "" || signinEmail === "" ) {
             toast.warning("Enter the details");
+            setButtonLoading(false);
             return;
         }
 
@@ -32,6 +34,7 @@ export default function SignInCard() {
                 navigate("/home");
             }
             else{
+                setButtonLoading(false);
                 toast.error("Login Failed")
             }
         // } 
@@ -98,9 +101,9 @@ export default function SignInCard() {
 
             <button
                 onClick={handleSignin}
-                className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-900 text-white font-medium rounded-lg transition duration-200"
+                className={`w-full py-3 px-4 text-white font-medium rounded-lg transition duration-200 ${buttonLoading ? ("bg-blue-100 hover:bg-blue-100") : ("bg-blue-600 hover:bg-blue-900")}`}
             >
-                Sign In
+                {buttonLoading ? ("Wait") : ("Sign In")}
             </button>
         </div>
     )

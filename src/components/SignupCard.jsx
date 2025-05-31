@@ -26,15 +26,19 @@ export default function SignUpCard({ setActiveTab }) {
     const dialogTriggerRef = useRef(null);
     const [countFromChild, setCountFromChild] = useState(0);
     const [topicsFromChild, setTopicsFromChild] = useState([]);
+    const [buttonLoading, setButtonLoading] = useState(false);
 
 
     const handleSignup = async () => {
+        setButtonLoading(true);
         if (signupPassword === "" || signupEmail === "" || name === "") {
             toast.warning("Enter the details");
+            setButtonLoading(false)
             return;
         }
         if (signupPassword.length < 8 ) {
             toast.warning("Password must be at least 8 characters long.");
+            setButtonLoading(false)
             return;
         }
 
@@ -52,8 +56,10 @@ export default function SignUpCard({ setActiveTab }) {
         } catch (error) {
             console.error("Signup failed:", error);
             if (error.response?.data?.message) {
+                setButtonLoading(false)
                 toast.error(`Signup failed: ${error.response.data.message}`);
             } else {
+                setButtonLoading(false)
                 toast.error("Signup failed: Unknown error occurred");
             }
         }
@@ -147,9 +153,9 @@ export default function SignUpCard({ setActiveTab }) {
 
             <button
                 onClick={handleSignup}
-                className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-900 text-white font-medium rounded-lg transition duration-200 "
+                className={`w-full py-3 px-4  text-white font-medium rounded-lg transition duration-200 ${buttonLoading ? ("bg-blue-100 active:bg-blue-100") : ("bg-blue-600 hover:bg-blue-900")} `}
             >
-                Create Account
+                {buttonLoading ? ("Wait") : ("Create Account")}
             </button>
 
             <AlertDialog>
