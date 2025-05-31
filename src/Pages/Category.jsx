@@ -27,7 +27,7 @@ export default function CatgoryPage(){
         <SidebarProvider className="relative flex">
           {isSignup ? (<AppSidebar />) : (<><NavbarLanding /></>)}
           <main className="flex-1 bg-gradient-to-tr from-blue-100 via-indigo-200 to-purple-200">
-            {isSignup ? (<SidebarTrigger className="fixed bg-white"/>) : (<></>)}
+            {isSignup ? (<SidebarTrigger className="fixed bg-white z-10"/>) : (<></>)}
 
 
               <div className="bg-[#] ">
