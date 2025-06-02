@@ -63,7 +63,7 @@ export default function Pricing() {
 
 
 
-          <div className="min-h-screen flex items-center justify-center">
+          <div className={`min-h-screen flex items-center justify-center  ${isSignup ? ("") : ("mt-10")}`}>
             <div className="my-10 grid sm:grid-cols-1 md:grid-cols-2 gap-10 md:gap-50 ">
               <section className=" p-3 hover:scale-103 shadow-xl border-2 rounded-4xl max-w-md md:h-150 justify-items-center justify-self-center bg-gradient-to-tr from-blue-200 via-indigo-300 to-purple-200 duration-200">
                 <div class="product">

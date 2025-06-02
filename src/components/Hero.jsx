@@ -4,7 +4,7 @@ import  Computer  from "/src/public/img.svg"
 export default function Hero() {
     const navigate = useNavigate()
     return (<>
-        <section className="bg-gradient-to-tr from-blue-400 to-indigo-500 via-purple-200  drop-shadow-[0_0_12px_rgba(136,72,153,0.4)] text-gray-800 py-24 px-6 lg:px-24 flex flex-col-reverse lg:flex-row items-center justify-between gap-10 mt-16 rounded-2xl shadow-sm">
+        <section className="bg-gradient-to-tr from-blue-400 to-indigo-500 via-purple-200  drop-shadow-[0_0_12px_rgba(136,72,153,0.4)] text-gray-800 py-24 px-6 lg:px-24 flex flex-col-reverse lg:flex-row items-center justify-between gap-10 mt-18 rounded-2xl shadow-sm">
             <div className="max-w-xl text-center lg:text-left">
                 <span className="inline-block bg-gradient-to-r from-blue-400 to-purple-500 text-white px-4 py-1 rounded-full text-sm font-medium mb-4">News That Matters</span>
                 <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight">
