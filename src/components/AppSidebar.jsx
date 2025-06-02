@@ -1,4 +1,4 @@
-import {Home, Newspaper, LayoutGrid , Landmark, Tag, Megaphone, TvMinimalPlay, User, TrendingUp, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react"
+import {Home, Newspaper, LayoutGrid ,  LogOut , Landmark, Tag, Megaphone, TvMinimalPlay, User, TrendingUp, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react"
 
 import {
   Sidebar,
@@ -20,6 +20,7 @@ import axios from "axios"
 import { useState , useEffect} from "react"
 import WorldButton from "./WorldButton"
 import { useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
 
 const items = [
     {
@@ -143,6 +144,29 @@ export function AppSidebar() {
         fun();
     },[])
 
+
+    const handleLogout = async()=>{
+        try{const response = await axios.post(`${backendUrl}/logout`,{
+                
+            },{
+                headers:{
+                    'Content-Type': 'application/json',
+                    'authorization': localStorage.getItem('authorization')
+                }
+            })
+        if (response) {
+            localStorage.setItem("authorization", "");
+            toast.success("Logout successfully");
+            navigate("/");
+        }
+        else{
+            toast.error("Logout Failed")
+        }
+        }catch(e){
+            console.log("the error is :",e);
+        }
+    }
+
   return (
     <Sidebar>
       <SidebarHeader>
@@ -196,7 +220,7 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-          <SidebarMenuItem>
+          {/* <SidebarMenuItem> */}
             <SidebarMenuButton asChild>
               <a href="/profile">
               {avatarUrl ? <img className="w-5 h-5 object-cover rounded-full" src={avatarUrl}/> : <User/>}
@@ -204,7 +228,13 @@ export function AppSidebar() {
                 <span>Profile</span>
               </a>
             </SidebarMenuButton>
-          </SidebarMenuItem>
+            <SidebarMenuButton asChild>
+              <div onClick={handleLogout}>
+                <LogOut />
+                <span>Log out</span>
+              </div>
+            </SidebarMenuButton>
+          {/* </SidebarMenuItem> */}
       </SidebarFooter>  
     </Sidebar>
   )

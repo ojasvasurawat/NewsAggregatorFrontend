@@ -17,6 +17,9 @@ export default function Profile() {
     const fileInputRef = useRef(null);
     const [avatarUrl, setAvatarUrl] = useState(null);
     const [oldAvatarUrl, setOldAvatarUrl] = useState(null);
+    const [buttonLoadingLogout, setButtonLoadingLogout] = useState(false);
+    const [buttonLoadingUpdate, setButtonLoadingUpdate] = useState(false);
+    const [buttonLoadingAvatar, setButtonLoadingAvatar] = useState(false);
 
 
     useEffect(()=>{
@@ -43,6 +46,7 @@ export default function Profile() {
     };
 
     const handleAvatarChange = async (e) => {
+        setButtonLoadingAvatar(true);
         const file = e.target.files?.[0];
 
         if (!file) return;
@@ -82,13 +86,16 @@ export default function Profile() {
 
             if (response.data) {
                 toast.success("Avatar uploaded successfully");
+                setButtonLoadingAvatar(false);
             }
         } catch (error) {
             console.error("Upload failed:", error);
             if (error.response?.data?.message) {
                 toast.error(`Upload failed: ${error.response.data.message}`);
+                setButtonLoadingAvatar(false);
             } else {
                 toast.error("Upload failed: Unknown error occurred");
+                setButtonLoadingAvatar(false);
             }
         }
         
@@ -98,13 +105,16 @@ export default function Profile() {
     };
 
     const handleUpdate = async () => {
+        setButtonLoadingUpdate(true)
 
         if (changedPassword === "" || changedName === "" ) {
             toast.warning("Enter the details");
+            setButtonLoadingUpdate(false)
             return;
         }
         if (changedPassword.length < 8 ) {
             toast.warning("Password must be at least 8 characters long.");
+            setButtonLoadingUpdate(false)
             return;
         }
 
@@ -120,19 +130,23 @@ export default function Profile() {
             });
 
             if (response.data) {
+                setButtonLoadingUpdate(false)
                 toast.success("Account updated successfully");
             }
         } catch (error) {
             console.error("Update failed:", error);
             if (error.response?.data?.message) {
                 toast.error(`Signup failed: ${error.response.data.message}`);
+                setButtonLoadingUpdate(false)
             } else {
                 toast.error("Update failed: Unknown error occurred");
+                setButtonLoadingUpdate(false)
             }
         }
     };
 
     const handleLogout = async()=>{
+                setButtonLoadingLogout(true)
         try{const response = await axios.post(`${backendUrl}/logout`,{
                 
             },{
@@ -143,14 +157,17 @@ export default function Profile() {
             })
         if (response) {
             localStorage.setItem("authorization", "");
+            setButtonLoadingLogout(false)
             toast.success("Logout successfully");
             navigate("/");
         }
         else{
             toast.error("Logout Failed")
+            setButtonLoadingLogout(false)
         }
         }catch(e){
             console.log("the error is :",e);
+            setButtonLoadingLogout(false)
         }
     }
 
@@ -186,9 +203,9 @@ export default function Profile() {
                         
                         <button
                             onClick={handleLogout}
-                            className="w-full py-3 px-4 bg-red-400 hover:bg-red-600 text-white font-medium rounded-lg transition duration-200"
+                            className={`w-full py-3 px-4 rounded-lg transition duration-200 text-white font-medium  ${buttonLoadingLogout ? ("bg-red-100 hover:bg-red-100") : ("bg-red-400 hover:bg-red-600 ")}`}
                         >
-                            logout
+                            {buttonLoadingLogout ? ("Wait") : ("logout")}
                         </button>
 
                     </div>
@@ -231,9 +248,9 @@ export default function Profile() {
 
                         <button
                             onClick={handleUpdate}
-                            className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-900 text-white font-medium rounded-lg transition duration-200"
+                            className={`w-full py-3 px-4 text-white font-medium rounded-lg transition duration-200 ${buttonLoadingUpdate ? ("bg-blue-100 hover:bg-blue-100") : ("bg-blue-600 hover:bg-blue-900")}`}
                         >
-                            Update
+                            {buttonLoadingUpdate ? ("Wait") : ("Update")}
                         </button>
                         
 
@@ -261,8 +278,8 @@ export default function Profile() {
                                     
                                 
                             )}
-                            <button className=" mt-3 py-2 px-4 bg-blue-600 hover:bg-blue-900 text-white font-medium rounded-lg transition duration-200" onClick={handleButtonClick}>Upload Avatar</button>
-                            <input
+                            <button className={` mt-3 py-2 px-4  text-white font-medium rounded-lg transition duration-200 ${buttonLoadingAvatar ? ("bg-blue-100 hover:bg-blue-100") : ("bg-blue-600 hover:bg-blue-900")}`} onClick={handleButtonClick}>{buttonLoadingAvatar ? ("Wait") : ("Upload Avatar")}</button>
+                            <input  
                                 type="file"
                                 ref={fileInputRef}
                                 style={{ display: 'none' }}
