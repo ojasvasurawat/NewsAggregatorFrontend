@@ -30,7 +30,7 @@ export default function CatgoryPage(){
             {isSignup ? (<SidebarTrigger className="fixed bg-white z-10"/>) : (<></>)}
 
 
-              <div className={`bg-[#] ${isSignup ? ("") : ("mt-7")}`}>
+              <div className={`bg-[#] ${isSignup ? ("") : ("mt-15")}`}>
                 <Category/>
               </div>
           </main>
