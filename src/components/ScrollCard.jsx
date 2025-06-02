@@ -38,7 +38,7 @@ export default function Scrollcard({ items }) {
         >
           <div className=" justify-items-center z-0 h-full "><img className="w-full h-full object-cover" src={item.img}/></div>
           
-                 <div className=" m-3 absolute inset-x-0 bottom-0 z-10 flex flex-col items-center p-4 text-white drop-shadow-[0_0_2px_blue] space-y-reverse space-y-2 backdrop-blur-xs">
+                 <div className=" m-3 mb-0 pb-0 absolute inset-x-0 bottom-0 z-10 flex flex-col items-center p-4 text-white drop-shadow-[0_0_2px_blue] space-y-reverse space-y-2 backdrop-blur-xs">
                      <div className="text-lg md:text-3xl font-bold mb-2 ">{item.title}</div>
                      {/* <div className="text-sm md:text-lg mb-2 ">{item.description}</div> */}
                      <div className="text-sm md:text-base mb-10"><a href={item.link} className="underline hover:text-blue-400">Read More</a></div>
